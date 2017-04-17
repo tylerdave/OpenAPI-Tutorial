@@ -9,29 +9,22 @@ Option 1: Vagrant + VirtualBox
 ------------------------------
 
 We have created a VM with all of the required applications already installed
-and configured. To use it you will need to install Vagrant and Virtualbox.
+and configured. To use it you will need to have Vagrant and Virtualbox
+installed.
 
 - [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 - [Download & Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-Once they're installed, make a new directory for your work and cd to it. For example:
+Once they're installed, clone this repo:
 
 ```
-mkdir openapi-tutorial
-cd openaoi-tutorial
+git clone https://github.com/tylerdave/OpenAPI-Tutorial.git
+cd OpenAPI-Tutorial
 ```
 
-Then clone this repo into a subdirectory named `tutorial-repo` (the name is
-important as it will be mapped to a directory on the VM):
+Then from wihtin the repo dir, start the Vagrant VM:
 
 ```
-git clone https://github.com/tylerdave/OpenAPI-Tutorial.git tutorial-repo
-```
-
-Then initialize and start a new Vagrant VM:
-
-```
-vagrant init [BOX COMING SOON]
 vagrant up --provider virtualbox
 ```
 
@@ -40,6 +33,13 @@ Then connect via ssh:
 ```
 vagrant ssh
 ```
+
+**On Windows?** You will need to either install and configure Git Bash or SSH
+to localhost:2222 using an SSH clinet program. More detauls:
+
+- Connect via PuTTY: http://stackoverflow.com/a/9924122/
+- Using Git Bash: http://stackoverflow.com/a/16247703/
+
 
 Option 2: Manual Installation
 -----------------------------
@@ -55,7 +55,7 @@ you may install the following:
 
 ### Node Packages
 
-Then install the following Node.js packages using `npm`:
+Install the following Node.js packages using `npm`:
 
 - dredd
 - swagger
