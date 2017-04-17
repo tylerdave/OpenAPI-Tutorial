@@ -12,8 +12,8 @@ We have created a VM with all of the required applications already installed
 and configured. To use it you will need to have Vagrant and Virtualbox
 installed.
 
-- [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 - [Download & Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 
 Once they're installed, clone this repo:
 
@@ -35,10 +35,10 @@ vagrant ssh
 ```
 
 **On Windows?** You will need to either install and configure Git Bash or SSH
-to localhost:2222 using an SSH clinet program. More detauls:
+to localhost:2222 using an SSH clinet program. More details:
 
 - Connect via PuTTY: http://stackoverflow.com/a/9924122/
-- Using Git Bash: http://stackoverflow.com/a/16247703/
+- SSH with Git Bash: http://stackoverflow.com/a/16247703/
 
 
 Option 2: Manual Installation
