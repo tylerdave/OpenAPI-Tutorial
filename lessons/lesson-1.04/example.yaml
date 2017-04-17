@@ -1,0 +1,58 @@
+swagger: '2.0'
+host: swagger.io
+basePath: /
+info:
+  title: Swagger Sample App
+  description: This is a sample server Petstore server.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: API Support
+    url: http://www.swagger.io/support
+    email: support@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.1
+
+schemes:
+ - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+paths:
+    /pets:
+      get:
+        summary: Get a list of pets
+        description: Retrieve a list of pets
+        responses:
+          200:
+            description: OK
+      post:
+        summary: Add pet to DB
+        description: Results in new pet information added to the DB
+        parameters:
+          - name: pet
+            in: body
+            description: Pet details
+            schema:
+              required: [name, status]
+              properties:
+                name:
+                  type: string
+                  description: The pet name
+                status:
+                  type: string
+                  description: The pet status
+        responses:
+          201:
+            description: Created new pet in the database
+            schema:
+              required: [pet-id]
+              properties:
+                pet-id:
+                  type: number
+                  description: Unique Id for the pet in the system

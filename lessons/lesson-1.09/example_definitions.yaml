@@ -1,0 +1,53 @@
+Pet:
+  type: object
+  required: [id, title, speaker-id, abstract, duration]
+  properties:
+    id:
+      type: integer
+      format: int32
+      description: Unique id for the talk
+      readOnly: true
+    title:
+      type: string
+      pattern: "[a-zA-Z0-9]{20, 144}"
+      description: Title for talk
+      minimum: 20
+      maximum: 144
+    speaker-id:
+      type: integer
+      format: int32
+      description: Speaker identification in the system
+    abstract:
+      type: string
+      pattern: "[a-zA-Z0-9]{100, 500}"
+      minimum: 100
+      maximum: 500
+      description: The talk abstract
+    duration:
+      type: integer
+      pattern: int32
+      default: 60
+      minimum: 45
+      maximum: 90
+      multipleOf: 15
+      description: Requested talk duration
+    comments:
+      type: string
+      pattern: "[a-zA-Z0-9]{100, 500}"
+      minimum: 100
+      maximum: 500
+      description: Additional information added by the speaker
+    scheduled-on:
+      type: string
+      format: date-time
+      readOnly: true
+Pets:
+  type: array
+  items:
+    $ref: "example_definitions.yaml#/Pet"
+Error:
+  properties:
+    code:
+      type: integer
+    message:
+      type: string

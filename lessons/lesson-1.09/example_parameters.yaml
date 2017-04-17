@@ -1,0 +1,24 @@
+pet-id:
+  name: pet-id
+  in: path
+  description: Pet identifier
+  type: number
+  required: true
+page-size:
+  name: page-size
+  in: query
+  description: Number of items
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 100
+  multipleOf: 10
+  default: 10
+page-number:
+  name: page-number
+  in: query
+  description: Paginated page number
+  type: integer
+  format: int32
+  minimum: 1
+  default: 1

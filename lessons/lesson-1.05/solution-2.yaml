@@ -1,0 +1,246 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'Better APIs Conference'
+  description: 'Example Conference API'
+  termsOfService: 'https://betterapis.com/terms'
+  contact:
+    name: Dave Forgac & Ian Zelikman
+    url: https://betterapis.com/info
+    email: contact@betterapis.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+schemes:
+ - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+paths:
+  /talks:
+    get:
+      summary: Get a list of talks
+      description: Retrieve a list of talks
+      responses:
+        200:
+          description: Returns a list of talk. Pagination supported.
+          schema:
+            $ref: '#/definitions/Talks'
+    post:
+      summary: Submit a new talk
+      description: Results in a new talk submitted
+      parameters:
+        - name: talk
+          in: body
+          description: Submit a talk.
+          schema:
+            $ref: '#/definitions/Talk'
+      responses:
+        201:
+          description: Talk succesfully submitted.
+          schema:
+            required: [talk-id]
+            properties:
+              talk-id:
+                type: number
+                description: Unique Id for the talk in the system
+
+  /talks/{talk-id}:
+    parameters:
+      - $ref: '#/parameters/talk-id'
+    get:
+      summary: Retrieve a talk
+      description: Get details of a talk previously submitted
+      responses:
+        200:
+          description: Returns a specific talk
+          schema:
+            $ref: '#/definitions/Talk'
+          examples:
+            application/json:
+              {
+                id: 9999,
+                title: "Open API Presentation",
+                speaker-id: 1111,
+                abstract: "This presentation will give a premier of the Open API specification",
+                duration: 60,
+                comments: "Presented before in various conferences",
+                scheduled-on: "2017-05-08T17:31:39+00:00"
+              }
+    put:
+      summary: Update a talk
+      description: Update details for previously submitted talk
+      parameters:
+        - name: talk
+          in: body
+          description: Talk to update.
+          schema:
+            $ref: '#/definitions/Talk'
+      responses:
+        200:
+          description: Talk updated
+    delete:
+      summary: Remove a talk
+      description: Remove a talk submission
+      operationId: DeleteTalk
+      responses:
+        200:
+          description: Talk submission removed
+  /speakers:
+    get:
+      summary: List of speakers
+      description: Retrieve a list of speakers participating in the conference
+      responses:
+        200:
+          description: Returned a list of speakers.
+          schema:
+            $ref: '#/definitions/Speakers'
+    post:
+      summary: Sign up as a speaker
+      description: Operation to support speaker registration and submit all details
+      parameters:
+        - name: speaker
+          in: body
+          description: New speaker details.
+          schema:
+            $ref: '#/definitions/Speaker'
+      responses:
+        201:
+          description: New speaker registered.
+          schema:
+            required: [speaker-id]
+            properties:
+              speaker-id:
+                type: number
+                description: Unique Id for the talk in the system
+  /speakers/{speaker-id}:
+    parameters:
+      - $ref: '#/parameters/speaker-id'
+    get:
+      summary: Get speaker details
+      description: Retrieve details about a specific speaker
+      operationId: getSpeaker
+      responses:
+        200:
+          description: Returns a specific speaker.
+          schema:
+            $ref: '#/definitions/Speaker'
+          examples:
+            application/json:
+              {
+                id: 9999,
+                first-name: "John",
+                last-name: "Doe",
+                comments: "Best presenter!"
+              }
+    put:
+      summary: Update a speaker
+      description: Update details for previously registered speaker
+      parameters:
+        - name: speaker
+          in: body
+          description: Speaker to update.
+          schema:
+            $ref: '#/definitions/Speaker'
+      responses:
+        200:
+          description: Speaker details updated
+    delete:
+      summary: Remove speaker
+      description: Remove a speaker registration
+      responses:
+        200:
+          description: Speaker registration removed
+
+parameters:
+  talk-id:
+    name: talk-id
+    in: path
+    description: Talk identifier
+    type: integer
+    required: true
+  speaker-id:
+    name: speaker-id
+    in: path
+    description: Speaker identifier
+    type: integer
+    required: true
+
+definitions:
+  Talk:
+    type: object
+    required: [title, speaker-id, abstract, duration]
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Unique id for the talk
+        readOnly: true
+      title:
+        type: string
+        pattern: "[A-Za-z0-9 :!\\.]*"
+        description: Title for talk
+        minLength: 1
+        maxLength: 144
+      speaker-id:
+        type: integer
+        format: int32
+        description: Speaker identification in the system
+      abstract:
+        type: string
+        minLength: 50
+        maxLength: 500
+        description: The talk abstract
+      duration:
+        type: integer
+        format: int32
+        default: 60
+        minimum: 45
+        maximum: 90
+        multipleOf: 15
+        description: Requested talk duration
+      comments:
+        type: string
+        minLength: 0
+        maxLength: 500
+        description: Additional information added by the speaker
+      scheduled-on:
+        type: string
+        format: date-time
+        readOnly: true
+  Talks:
+    type: array
+    items:
+      $ref: "#/definitions/Talk"
+  Speaker:
+    type: object
+    required: [first-name, last-name]
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Unique id for the speaker
+        readOnly: true
+      first-name:
+        type: string
+        minLength: 1
+        maxLength: 25
+        description: Speaker first name
+      last-name:
+        type: string
+        minLength: 1
+        maxLength: 50
+        description: Speaker last name
+      comments:
+        type: string
+        minLength: 50
+        maxLength: 200
+  Speakers:
+    type: array
+    items:
+      $ref: "#/definitions/Speaker"

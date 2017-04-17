@@ -21,7 +21,8 @@ mkdir openapi-tutorial
 cd openaoi-tutorial
 ```
 
-Then clone this repo into a subdirectory named `tutorial-repo`:
+Then clone this repo into a subdirectory named `tutorial-repo` (the name is
+important as it will be mapped to a directory on the VM):
 
 ```
 git clone https://github.com/tylerdave/OpenAPI-Tutorial.git tutorial-repo
@@ -88,3 +89,11 @@ Install the implementation package and its dependencies:
 ```
 pip install -e tutorial-repo/implementation/betterapis
 ```
+
+Option 3: Backup Plan
+---------------------
+
+If you're unable to get everything installed correctly, you can still follow
+most of the tutorial by using the online Swagger editor at
+http://editor.swagger.io/#/
+

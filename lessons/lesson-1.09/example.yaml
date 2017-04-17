@@ -1,0 +1,168 @@
+swagger: '2.0'
+host: swagger.io
+basePath: /
+info:
+  title: Swagger Sample App
+  description: This is a sample server Petstore server.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: API Support
+    url: http://www.swagger.io/support
+    email: support@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.1
+
+schemes:
+ - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+securityDefinitions:
+  OauthSecurity:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: 'https://oauth.swagger.io.com/authorization'
+    tokenUrl: 'https://oauth.swagger.io/token'
+    scopes:
+      admin: Admin scope
+      user: User scope
+security:
+  - OauthSecurity:
+    - user
+
+paths:
+  /pets:
+    get:
+      summary: Get a list of pets
+      description: Retrieve a list of pets
+      parameters:
+        - $ref: 'example_parameters.yaml#/page-size'
+        - $ref: 'example_parameters.yaml#/page-number'
+      responses:
+        200:
+          description: Returns a list of pets.
+          schema:
+            $ref: 'example_definitions.yaml#/Pets'
+        400:
+          $ref: 'example_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'example_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'example_responses.yaml#/UnknownResponse'
+    post:
+      summary: Add pet to DB
+      description: Results in new pet information added to the DB
+      parameters:
+        - name: pet
+          in: body
+          description: Pet details
+          schema:
+            required: [name, status]
+            properties:
+              name:
+                type: string
+                description: The pet name
+              status:
+                type: string
+                description: The pet status
+      responses:
+        201:
+          description: Created new pet in the database
+          schema:
+            required: [pet-id]
+            properties:
+              pet-id:
+                type: number
+                description: Unique Id for the pet in the system
+        400:
+          $ref: 'example_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'example_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'example_responses.yaml#/UnknownResponse'
+  /pets/{pet-id}:
+    parameters:
+      - $ref: 'example_parameters.yaml#/pet-id'
+    get:
+      summary: Retrieve pet details
+      description: Get details of a pet previously registered
+      responses:
+        200:
+          description: Returns a specific talk
+          schema:
+            $ref: 'example_definitions.yaml#/Pet'
+          examples:
+            application/json:
+              {
+                id: 12345,
+                name: "pythagoras",
+                status: "Adopted"
+              }
+    put:
+      summary: Update pet details
+      description: Update details for previously registered pet
+      parameters:
+        - name: pet
+          in: body
+          description: Details to update
+          schema:
+            $ref: 'example_definitions.yaml#/Pet'
+      responses:
+        200:
+          description: Pet details updated
+        400:
+          $ref: 'example_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'example_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'example_responses.yaml#/UnknownResponse'
+    delete:
+      summary: Remove a pet
+      description: Remove the pet details from DB
+      responses:
+        200:
+          description: Pet removed
+        400:
+          $ref: 'example_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'example_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'example_responses.yaml#/UnknownResponse'
+  /pets/{pet-id}/picture:
+    parameters:
+          - $ref: 'example_parameters.yaml#/pet-id'
+    post:
+      summary: Upload a pet picture
+      description: Admin operation to upload a pet picture
+      security:
+        - OauthSecurity:
+          - admin
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: picture
+          in: formData
+          type: file
+      responses:
+        204:
+          description: Picture uploaded
+          headers:
+            X-Rate-Limit-Remaining:
+              description: Number of requests before limit reached
+              type: integer
+        400:
+          $ref: 'example_responses.yaml#/RequestErrorResponse'
+        404:
+          description: Pet was not found.
+          schema:
+            $ref: 'example_definitions.yaml#/Error'
+        500:
+          $ref: 'example_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'example_responses.yaml#/UnknownResponse'

@@ -1,0 +1,154 @@
+Renaming variables to use underscores throughout. This makes serialization
+easier with the exmaple Python implementation. I think we can explain that one
+could keep the dashes in the name with some additional serialization config but
+that's outside of the scope for us. I'm planning on having a slide for "changes
+to the spec from lesson 1.05"
+
+47c47
+<             required: [talk-id]
+---
+>             required: [talk_id]
+49c49
+<               talk-id:
+---
+>               talk_id:
+53c53
+<   /talks/{talk-id}:
+---
+>   /talks/{talk_id}:
+55c55
+<       - $ref: '#/parameters/talk-id'
+---
+>       - $ref: '#/parameters/talk_id'
+69c69
+<                 speaker-id: 1111,
+---
+>                 speaker_id: 1111,
+
+Removing operationId. Connexion's RestyRouter routes path+method automatically
+but will prefer the operationId value if it's set. 
+
+90d89
+<       operationId: DeleteTalk
+116c115
+<             required: [speaker-id]
+---
+>             required: [speaker_id]
+118c117
+<               speaker-id:
+---
+>               speaker_id:
+121c120
+<   /speakers/{speaker-id}:
+---
+>   /speakers/{speaker_id}:
+123c122
+<       - $ref: '#/parameters/speaker-id'
+---
+>       - $ref: '#/parameters/speaker_id'
+127d125
+<       operationId: getSpeaker
+161,162c159,160
+<   talk-id:
+<     name: talk-id
+---
+>   talk_id:
+>     name: talk_id
+
+Connexion treats "number" in the path as a float so "/talks/1" did not work but
+"/talks/1.0" did. I'm not sure if this is connexion-specific but it's not what
+we want so I changed it.
+
+165c163
+<     type: number
+---
+>     type: integer
+167,168c165,166
+<   speaker-id:
+<     name: speaker-id
+---
+>   speaker_id:
+>     name: speaker_id
+171c169
+<     type: number
+---
+>     type: integer
+
+Removed id from required fields, otherwise id was required on a POST to create
+a new talk. We want the storage to automatically generate the id so remove it
+here.
+
+177c175
+<     required: [id, title, speaker-id, abstract, duration]
+---
+>     required: [title, speaker_id, abstract, duration]
+
+Changed the pattern to something that will allow more realistic values for talk
+titles. Removed the count range specifier here as the length is being enforced
+by the min/max below.
+
+186c184
+<         pattern: "[a-zA-Z0-9]{20, 144}"
+---
+>         pattern: "[A-Za-z0-9 :!\\.]*"
+190c188
+<       speaker-id:
+---
+>       speaker_id:
+
+For string types, replaced minimum/maximum with minLength/maxLength.
+
+188,190c186,188
+<         minimum: 20
+<         maximum: 144
+<       speaker-id:
+---
+>         minLength: 1
+>         maxLength: 144
+>       speaker_id:
+
+Removed the remaining pattern specs since we don't really want these fields to
+be restrictive. We can use the single example above in our lessons.
+
+196,198c194,195
+<         pattern: "[a-zA-Z0-9]{100, 500}"
+<         minimum: 100
+<         maximum: 500
+---
+>         minLength: 50
+>         maxLength: 500
+
+Fixing what looks like a typo:
+
+202c199
+<         pattern: int32
+---
+>         format: int32
+210,212c207,208
+<         pattern: "[a-zA-Z0-9]{100, 500}"
+<         minimum: 100
+<         maximum: 500
+---
+>         minLength: 0
+>         maxLength: 500
+233,235c229,230
+<         pattern: "[a-zA-Z]{2, 25}"
+<         minimum: 2
+<         maximum: 25
+---
+>         minLength: 1
+>         maxLength: 25
+239,241c234,235
+<         pattern: "[a-zA-Z]{2, 50}"
+<         minimum: 2
+<         maximum: 50
+---
+>         minLength: 1
+>         maxLength: 50
+245,247c239,240
+<         pattern: "[a-zA-Z]{50, 200}"
+<         minimum: 50
+<         maximum: 200
+---
+>         minLength: 50
+>         maxLength: 200

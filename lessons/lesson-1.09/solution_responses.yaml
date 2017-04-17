@@ -1,0 +1,10 @@
+UnknownResponse:
+  description: This response is not yet docuemtned by this API.
+ServerErrorResponse:
+  description: Server error during request.
+  schema:
+    $ref: "solution_definitions.yaml#/Error"
+RequestErrorResponse:
+  description: Invalid request.
+  schema:
+    $ref: "solution_definitions.yaml#/Error"

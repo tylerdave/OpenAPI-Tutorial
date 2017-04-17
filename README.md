@@ -8,11 +8,13 @@ https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56579
 Prerequisites
 -------------
 
-Make sure to install everything as described in [PREREQUISITES.md](PREREQUISITES.md).
+To follow this tutorial, please make sure to install everything as described in
+[PREREQUISITES.md](PREREQUISITES.md).
 
-Lessons
--------
+Repo Contents
+-------------
 
+- `lessons`: Tutorial lesson examples and solution files.
+- `implementation`: Example implementation using Connexions.
+- `presentation`: HTML presentation and source.
 
-Presentation
-------------

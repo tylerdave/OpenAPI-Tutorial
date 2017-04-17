@@ -1,0 +1,24 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'Better APIs Conference'
+  description: 'Example Conference API'
+  termsOfService: 'https://betterapis.com/terms'
+  contact:
+    name: Dave Forgac & Ian Zelikman
+    url: https://betterapis.com/info
+    email: contact@betterapis.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+schemes:
+ - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+paths: {}

@@ -1,0 +1,30 @@
+talk-id:
+  name: talk-id
+  in: path
+  description: Talk identifier
+  type: integer
+  required: true
+speaker-id:
+  name: speaker-id
+  in: path
+  description: Speaker identifier
+  type: integer
+  required: true
+page-size:
+  name: page-size
+  in: query
+  description: Number of items
+  type: integer
+  format: int32
+  minimum: 1
+  maximum: 100
+  multipleOf: 10
+  default: 10
+page-number:
+  name: page-number
+  in: query
+  description: Paginated page number
+  type: integer
+  format: int32
+  minimum: 1
+  default: 1

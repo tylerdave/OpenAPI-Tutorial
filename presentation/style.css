@@ -1,0 +1,95 @@
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700|Work+Sans);
+      @import url('https://fonts.googleapis.com/css?family=Crimson+Text:600,600i');
+
+      body { font-family: 'Work Sans', sans-serif; }
+      h1, h2, h3 {
+          margin-top:0px;
+          margin-bottom: 5px;
+        font-family: 'Alegreya Sans SC', sans-serif;
+        font-weight: normal;
+      }
+      .remark-notes {
+          font-size: 125%;
+      }
+      .remark-slide-content {
+          font-size: 35px;
+          background: #f3f3f3;
+      }
+      .remark-slide-content h1 {
+          font-size: 120px;
+      }
+      .remark-slide-content h2 {
+          font-size: 75px;
+      }
+      .remark-slide-content h3 {
+          font-size: 45px;
+      }
+      .remark-code, .remark-inline-code {
+           font-family: 'Ubuntu Mono';
+            text-align: left;
+            display: inline-block;
+            font-size: 26px;
+            background-color: white;
+            padding: 10px;
+       }
+       .remark-inline-code {
+           font-size: 35px; 
+       }
+       .remark-code-line {
+            min-height: 0px;
+       }
+       pre {
+            padding: 5px;
+           margin: 5px;
+       }
+       .padded-top {
+           padding-top: 80px;
+       }
+       .padded-top2 {
+           padding-top: 160px;
+       }
+       blockquote {
+           font-family: "Crimson Text", serif;
+           font-size: 60px;
+        font-style: italic;
+       }
+       a, a.visited {
+           color: black;
+           text-decoration: none;
+       }
+       .demo {
+            color: white;
+            background: black;
+       }
+       .section-title {
+           color: white;
+           background: midnightblue;
+       }
+       .lesson > h1, .solution > h1 {
+        font-size: 60px;
+       float:left;
+        width:100%;
+        padding-bottom: 0px;
+        margin-bottom: 20px;
+       }
+       .lesson > h1 {
+         color: darkred;
+         border-bottom:1px solid darkred;
+       }
+       .solution > h1 {
+         color: darkgreen;
+         border-bottom:1px solid darkgreen;
+       }
+       .lesson > h2, .solution > h2 {
+         margin-top: 50px;
+       }
+      .left-column {
+        width: 50%;
+        float: left;
+      }
+      .right-column {
+        width: 50%;
+        float: right;
+    }
+ 

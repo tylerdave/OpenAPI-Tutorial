@@ -1,0 +1,275 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'Better APIs Conference'
+  description: 'Example Conference API'
+  termsOfService: 'https://betterapis.com/terms'
+  contact:
+    name: Dave Forgac & Ian Zelikman
+    url: https://betterapis.com/info
+    email: contact@betterapis.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+schemes:
+ - https
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+securityDefinitions:
+  OauthSecurity:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: 'https://oauth.betterapis.com/authorization'
+    tokenUrl: 'https://oauth.betterapis.com/token'
+    scopes:
+      admin: Admin scope
+      user: User scope
+security:
+  - OauthSecurity:
+    - user
+
+paths:
+  /talks:
+    get:
+      summary: Get a list of talks
+      description: Retrieve a list of talks
+      parameters:
+        - $ref: 'solution_parameters.yaml#/page-size'
+        - $ref: 'solution_parameters.yaml#/page-number'
+      responses:
+        200:
+          description: Returns a list of talk. Pagination supported.
+          schema:
+            $ref: 'solution_definitions.yaml#/Talks'
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    post:
+      summary: Submit a new talk
+      description: Results in a new talk submitted
+      parameters:
+        - name: talk
+          in: body
+          description: Submit a talk.
+          schema:
+            $ref: 'solution_definitions.yaml#/Talk'
+      responses:
+        201:
+          description: Talk succesfully submitted.
+          schema:
+            required: [talk-id]
+            properties:
+              talk-id:
+                type: number
+                description: Unique Id for the talk in the system
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        409:
+          description: Talk already submitted.
+          schema:
+            $ref: 'solution_definitions.yaml#/Error'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+
+  /talks/{talk-id}:
+    parameters:
+      - $ref: 'solution_parameters.yaml#/talk-id'
+    get:
+      summary: Retrieve a talk
+      description: Get details of a talk previously submitted
+      responses:
+        200:
+          description: Returns a specific talk
+          schema:
+            $ref: 'solution_definitions.yaml#/Talk'
+          examples:
+            application/json:
+              {
+                id: 9999,
+                title: "Open API Presentation",
+                speaker-id: 1111,
+                abstract: "This presentation will give a premier of the Open API specification",
+                duration: 60,
+                comments: "Presented before in various conferences",
+                scheduled-on: "2017-05-08T17:31:39+00:00"
+              }
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        404:
+          description: Talk was not found
+          schema:
+            $ref: 'solution_definitions.yaml#/Error'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    put:
+      summary: Update a talk
+      description: Update details for previously submitted talk
+      parameters:
+        - name: talk
+          in: body
+          description: Talk to update.
+          schema:
+            $ref: 'solution_definitions.yaml#/Talk'
+      responses:
+        200:
+          description: Talk updated
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    delete:
+      summary: Remove a talk
+      description: Remove a talk submission
+      responses:
+        200:
+          description: Talk submission removed
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+  /speakers:
+    get:
+      summary: List of speakers
+      description: Retrieve a list of speakers participating in the conference
+      parameters:
+        - $ref: 'solution_parameters.yaml#/page-size'
+        - $ref: 'solution_parameters.yaml#/page-number'
+      responses:
+        200:
+          description: Returned a list of speakers.
+          schema:
+            $ref: 'solution_definitions.yaml#/Speakers'
+        400:
+          $ref: "solution_responses.yaml#/RequestErrorResponse"
+        500:
+          $ref: "solution_responses.yaml#/ServerErrorResponse"
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    post:
+      summary: Sign up as a speaker
+      description: Operation to support speaker registration and submit all details
+      parameters:
+        - name: speaker
+          in: body
+          description: New speaker details.
+          schema:
+            $ref: 'solution_definitions.yaml#/Speaker'
+      responses:
+        201:
+          description: New speaker registered.
+          schema:
+            required: [speaker-id]
+            properties:
+              speaker-id:
+                type: number
+                description: Unique Id for the talk in the system
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+  /speakers/{speaker-id}:
+    parameters:
+      - $ref: 'solution_parameters.yaml#/speaker-id'
+    get:
+      summary: Get speaker details
+      description: Retrieve details about a specific speaker
+      responses:
+        200:
+          description: Returns a specific speaker.
+          schema:
+            $ref: 'solution_definitions.yaml#/Speaker'
+          examples:
+            application/json:
+              {
+                id: 9999,
+                first-name: "John",
+                last-name: "Doe",
+                comments: "Best presenter!"
+              }
+        400:
+          $ref: "solution_responses.yaml#/RequestErrorResponse"
+        404:
+          description: Speaker was not found.
+          schema:
+            $ref: "solution_definitions.yaml#/Error"
+        500:
+          $ref: "solution_responses.yaml#/ServerErrorResponse"
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    put:
+      summary: Update a speaker
+      description: Update details for previously registered speaker
+      parameters:
+        - name: speaker
+          in: body
+          description: Speaker to update.
+          schema:
+            $ref: 'solution_definitions.yaml#/Speaker'
+      responses:
+        200:
+          description: Speaker details updated
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+    delete:
+      summary: Remove speaker
+      description: Remove a speaker registration
+      responses:
+        200:
+          description: Speaker registration removed
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
+  /speakers/{speaker-id}/resume:
+    parameters:
+          - $ref: 'solution_parameters.yaml#/speaker-id'
+    post:
+      summary: Upload a speaker resume
+      description: Admin operation to upload a speaker resume
+      security:
+        - OauthSecurity:
+          - admin
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: resume
+          in: formData
+          type: file
+      responses:
+        204:
+          description: Resume uploaded
+          headers:
+            X-Rate-Limit-Remaining:
+              description: Number of requests before limit reached
+              type: integer
+        400:
+          $ref: 'solution_responses.yaml#/RequestErrorResponse'
+        404:
+          description: Speaker was not found.
+          schema:
+            $ref: 'solution_definitions.yaml#/Error'
+        500:
+          $ref: 'solution_responses.yaml#/ServerErrorResponse'
+        default:
+          $ref: 'solution_responses.yaml#/UnknownResponse'
