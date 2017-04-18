@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provider :virtualbox do |vb|
       vb.name = "openapi-tutorial"
+      vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
   config.ssh.keep_alive = true
   config.ssh.username = "ubuntu"
