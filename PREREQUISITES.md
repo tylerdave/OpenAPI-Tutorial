@@ -92,7 +92,7 @@ python -m venv tutorial
 Install the implementation package and its dependencies:
 
 ```
-pip install -e tutorial-repo/implementation/betterapis
+pip install -e tutorial-repo/implementation
 ```
 
 Option 3: Backup Plan
