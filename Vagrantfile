@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/home/ubuntu/tutorial-repo"
   config.vm.network "forwarded_port", guest: 8080, host: 8080  # connexion API
   config.vm.network "forwarded_port", guest: 8000, host: 8000  # swagger-editor
+  config.vm.network "forwarded_port", guest: 8001, host: 8001  # swagger-editor-v3
 
   # config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
