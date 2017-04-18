@@ -401,7 +401,6 @@ class: lesson
 http-server swagger-editor
 ```
 - Validator:
-
 TODO
 
 ???
@@ -420,12 +419,17 @@ class: lesson
 
 ## Exercise Instructions
 
-- Load an example from the Swagger editor. Go through the example and see how it is displayed.
+- Load several examples from the swagger editor, review them.
 
-- Export the example, validate it and create a mock server for it.
-  TODO: We need to figure out what we are doing for Mock server/validator
-  If we do not have a mock server and an external validator, change this to be about loading an
-  example as well. Maybe play around with showing off errors that the code editor can show.
+- Import the broken examples from lesson-1.01 directory.
+  Try fixing the errors.
+
+???
+
+- Make sure to familiarize yourself with the swagger examples before trying to fix errors.
+
+- Each file will have one error, if you are having problem fixing it you can look at the example
+  with similar name.
 ---
 
 class: center, middle, section-title
@@ -441,9 +445,9 @@ class: solution
 
 ???
 - In the exercise you had the opportunity to better familiarize yourself with Open API spec structure.
-- You were able to validate and generate mock server as well as documentation for the user.
-- This demonstrates a complete cycles of developing (just) a spec. We will now dive into the specifics
-  of writing a spec.
+- **echo_broken** had a missing colon
+  **minimal_broken** has bad indentation
+  **default_broken** had no space after colon
 
 ---
 
