@@ -15,7 +15,7 @@ installed.
 - [Download & Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 
-**Be sure to reboot your host system after installing Vagrant + VirtualBox.**
+*Be sure to reboot your host system after installing Vagrant + VirtualBox.*
 
 Once they're installed and you've rebooted, clone this repo:
 
