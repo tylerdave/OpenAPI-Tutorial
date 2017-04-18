@@ -15,7 +15,9 @@ installed.
 - [Download & Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 
-Once they're installed, clone this repo:
+**Be sure to reboot your host system after installing Vagrant + VirtualBox.**
+
+Once they're installed and you've rebooted, clone this repo:
 
 ```
 git clone https://github.com/tylerdave/OpenAPI-Tutorial.git
