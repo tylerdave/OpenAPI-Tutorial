@@ -8,7 +8,7 @@ https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56579
 Getting Started
 ---------------
 
-To follow this tutoriali you will need to have everything installed as 
+To follow this tutorial you will need to have everything installed as 
 described in [PREREQUISITES.md](PREREQUISITES.md).
 
 If you're using the recommended VM option, see [VM.md](VM.md) for more usage
