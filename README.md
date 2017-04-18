@@ -9,7 +9,8 @@ Prerequisites
 -------------
 
 To follow this tutorial, please make sure to install everything as described in
-[PREREQUISITES.md](PREREQUISITES.md).
+[PREREQUISITES.md](PREREQUISITES.md). If you're using the recommended VM 
+option, see [VM.md](VM.md) for more usage information.
 
 Repo Contents
 -------------
