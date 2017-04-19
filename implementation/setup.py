@@ -10,4 +10,9 @@ setup(
             'connexion',
             'flask_sqlalchemy'
             ],
+        entry_points={
+        'console_scripts':[
+            'betterapis=betterapis.cli:betterapis_cli',
+            ],
+        }
         )
