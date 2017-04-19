@@ -346,10 +346,11 @@ class: lesson
 
 ## Instructions
 
-- Work in `tutorial` directory
+- Work in `work` directory
+
 - Save `betterapis.yml`
-- Run validator: `TODO: command here`
-- Generate UI: `TODO: command here`
+
+- Run validator: `swagger validate tutorial-repo/lessons/lesson-1.02/solution.yaml`
 
 ---
 
@@ -359,11 +360,11 @@ class: solution
 
 ## Done?
 
-- Compare with contents of `solutions/lesson##`
+- Compare with contents of `lessons/lesson-x.xx/solution.xxx`
 
 ## Stuck?
 
-- Copy `solutions/lesson##/*` to `tutorial`
+- Copy `lessons/lesson-x.xx/solution.xxx` to `work`
 
 
 ---
@@ -397,12 +398,16 @@ class: lesson
 ## Tooling
 
 - Swagger editor:
+
 ```
 http-server swagger-editor
 ```
-- Validator:
-TODO
 
+- Validator:
+
+```
+swagger validate tutorial-repo/lessons/lesson-1.02/solution.yaml
+```
 ???
 - In the environment you downloaded you will be able to run the **swagger editor** that I will now show.
 - There are several examples that come with the editor. We will look at **default.yaml**.
@@ -410,7 +415,8 @@ TODO
 - The spec is very readable and not just easily parsed by automatic tools. But we will look at every
   element in detail in later lessons.
 - As you start working with the editor. You can see it does very good **validation**.
-- TODO validator
+- The editor gives you good validation but if you also want to combine working in command line
+  or want to know how to automate this process you can use the cli.
 
 ---
 class: lesson
