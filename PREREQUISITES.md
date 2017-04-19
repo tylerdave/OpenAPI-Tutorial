@@ -5,8 +5,8 @@ In order to follow-along with the exercises in this tutorial you will need
 to install some applications and tooling. Installation can take a while so
 please try to make sure everything is installed before the session.
 
-Option 1: Vagrant + VirtualBox
-------------------------------
+Option 1: Vagrant + VirtualBox (recommended)
+-------------------------------------------
 
 We have created a VM with all of the required applications already installed
 and configured. To use it you will need to have Vagrant and Virtualbox
@@ -15,7 +15,9 @@ installed.
 - [Download & Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Download & Install Vagrant](https://www.vagrantup.com/docs/installation/)
 
-Once they're installed, clone this repo:
+*Be sure to reboot your host system after installing Vagrant + VirtualBox.*
+
+Once they're installed and you've rebooted, clone this repo:
 
 ```
 git clone https://github.com/tylerdave/OpenAPI-Tutorial.git
@@ -40,6 +42,9 @@ to localhost:2222 using an SSH clinet program. More details:
 - Connect via PuTTY: http://stackoverflow.com/a/9924122/
 - SSH with Git Bash: http://stackoverflow.com/a/16247703/
 
+### Using the VM
+
+See [VM.md](VM.md) for more usage information.
 
 Option 2: Manual Installation
 -----------------------------
@@ -87,7 +92,7 @@ python -m venv tutorial
 Install the implementation package and its dependencies:
 
 ```
-pip install -e tutorial-repo/implementation/betterapis
+pip install -e tutorial-repo/implementation
 ```
 
 Option 3: Backup Plan
