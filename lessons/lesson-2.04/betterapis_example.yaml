@@ -154,7 +154,7 @@ paths:
       responses:
         200:
           description: Speaker registration removed
-  /track:
+  /tracks:
     post:
       summary: Submit a track
       description: track submission
@@ -173,7 +173,7 @@ paths:
               review_id:
                 type: integer
                 description: Unique Id for the track in the system
-  /reviews/{track_id}:
+  /tracks/{track_id}:
     parameters:
       - $ref: '#/parameters/track_id'
     get:
@@ -201,7 +201,7 @@ parameters:
     required: true
     x-example: 2
   track_id:
-    name: review_id
+    name: track_id
     in: path
     description: Review identifier
     type: integer
