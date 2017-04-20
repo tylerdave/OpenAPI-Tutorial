@@ -24,7 +24,7 @@ class: center, middle
 ???
 - I'm Dave Forgac and this is Ian Zelikman.
 - We used to work together on the API team at American Greetings, but he's since moved on to a different job at IBM Watson Health.
-- You can read our bios on the OSCON site if you want to know more.
+- You can read our bios on the conference site if you want to know more.
 - One thing I would like to point out is that we are not affiliated with the OpenAPI Initiative.
 - We are simply users of and fans of the technology.
 
@@ -32,9 +32,9 @@ class: center, middle
 
 class: center, middle
 
-# Prerequisites
-## + Slides, Examples,<br/>Links, Feedback:
-## http://BetterAPIs.com
+# Get Set Up
+# `https://github.com/tylerdave/OpenAPI-Tutorial/`
+## `PREREQUISITES.md`
 
 ???
 - We put together a simple website for this tutorial.
@@ -46,9 +46,13 @@ class: center, middle
 
 ---
 
-class: center, padded-top2
+class: center, middle
 
 # Verify Your Installation
+
+## `vagrant up`
+
+## `vagrant ssh`
 
 ???
 - If you don't have the prerequisites installed yet, you should be following the directions to do so now.
@@ -61,6 +65,8 @@ class: center, padded-top2
 class: center, middle
 
 # Backup Plan
+
+## `http://editor.swagger.io/`
 
 ???
 - Before we start the tutorial lessons I'm going to run through some background information.
@@ -105,7 +111,7 @@ class: center, padded-top
 
 --
 
-## Constraints
+## HTTP w/ Constraints
 
 ???
 - For an API to be truly RESTful it needs to adhere to specific constraints:
@@ -223,7 +229,7 @@ class: center, padded-top
 ## Superset of JSON
 --
 
-## Broad Support
+## Language Support
 
 ???
 - YAML stands for YAML aint markup language
@@ -234,17 +240,124 @@ class: center, padded-top
 
 ---
 
-class: center
+class: center, middle
 
-# YAML Example
+## YAML Basics - Lists
 
 ```
+---
+colors:
+  - red
+  - green
+  - blue
+...
+```
 
+---
+
+class: center, middle
+
+## YAML Basics - Dictionaries
+
+```
+---
+person:
+  name: Ian
+  occupation: Developer
+...
+```
+
+---
+
+class: center, middle
+
+## YAML Basics - Spanning
+
+```
+---
+description: |
+  This is a long description
+  using a pipe
+  which will preserve newlines.
+description2: >
+  This is a long desciption using > which
+  will ignore
+  new
+  lines.
+...
+```
+
+---
+
+class: center, middle
+
+## YAML Basics - Nesting
+
+```
+---
+person:
+  name: Ian
+  occupation: Developer
+  skills:
+    - apis
+    - swagger
+  languages: ['java', 'python']
+  bio: >
+    Ian is really awesome and you should listen
+    to him.
+...
 ```
 
 ---
 
 class: center
+
+# Compare
+
+.left-column[
+.center[
+## JSON
+
+```
+"Talk": {
+  "type": "object", 
+  "properties": {
+    "id": {
+      "type": "integer"
+    }, 
+    "title": {
+      "minLength": 1, 
+      "type": "string", 
+      "maxLength": 144
+    }
+  }
+}
+```
+]
+]
+
+.right-column[
+.center[
+## YAML
+
+```
+Talk:
+  type: object
+  properties:
+    id:
+      type: integer
+    title:
+      type: string
+      minLength: 1
+      maxLength: 144
+```
+
+]
+]
+
+---
+
+class: center, padded-top
 
 # API Definitions
 --
@@ -304,10 +417,17 @@ class: center, middle, section-title
 class: center, padded-top
 
 # Goals
+--
 
 ## OpenAPI Spec
+--
+
 ## Testing
+--
+
 ## Documentation
+--
+
 ## Basic Implementation
 
 ---
@@ -322,8 +442,7 @@ class: center
 ├── lessons
 │   ├── lesson-1.01
 │   │   ├── default_broken.yaml
-│   │   ├── echo_broken.yaml
-│   │   └── minimal_broken.yaml
+│   │   └── solution.yaml
 │   ├── lesson-1.02
 │   │   ├── example.json
 │  ... ...
@@ -333,7 +452,6 @@ class: center
 ├── presentation
 │   └── ...
 └── work
-    └── README.md
 ```
 
 ---
@@ -345,10 +463,11 @@ class: lesson
 ## Instructions
 
 - Work in `work` directory
-
+  - Via editor on host machine
+  - Or via editor in VM terminal
 - Save `betterapis.yml`
-
-- Run validator: `swagger validate tutorial-repo/lessons/lesson-1.02/solution.yaml`
+- Run validator within VM:
+  - `swagger validate tutorial-repo/work/betterapis.yml`
 
 ---
 
@@ -379,8 +498,8 @@ class: lesson
 
 ## Goals
 
-- Setting up the environment.
-- Looking at some Open API example specs and exercising the tools we will use.
+- Explore the environment.
+- Look at some Open API example specs and exercise the tools we will use.
 
 ???
 - We will start every lesson with **goals**. Then some **theory** or **demo** and then and *excercise*.
@@ -397,15 +516,14 @@ class: lesson
 
 - Swagger editor:
 
-```
-http-server swagger-editor
-```
+`http://localhost:8000/`
 
 - Validator:
 
 ```
 swagger validate tutorial-repo/lessons/lesson-1.02/solution.yaml
 ```
+
 ???
 - In the environment you downloaded you will be able to run the **swagger editor** that I will now show.
 - There are several examples that come with the editor. We will look at **default.yaml**.
@@ -1390,30 +1508,31 @@ class: center, middle, section-title
 
 ---
 
-# Review Spec
-
-???
-Take a quick look at the overall spec at this point
-Review content from any lessons we didn't complete in part 1
-
----
-
-# Changes in OpenAPI 3.0
-
----
+class: center, padded-top
 
 # Code Generation
+--
+
+## Servers
+--
+
+## Clients
 
 ---
 
-# Server Code
+class: center
 
-???
-Frameworks, etc
+# Swagger-Codegen
+--
 
----
+## Via editor
 
-# Client Code
+`https://generator.swagger.io/`
+--
+
+## Via CLI
+
+`http://swagger.io/swagger-codegen/`
 
 ---
 
@@ -1577,10 +1696,12 @@ class: lesson
 
 ## Exercise Instructions
 
-- Run the the betterapis application using the connexion implementation TODO: instructions in VM
-
+- Run the the betterapis application using the connexion implementation
+  - Activate virtualenv: `workon tutorial`
+  - Run app: `python -m betterapis`
 - Register two speakers and submit a talk for each one.
-  Check the list of speakers and talks to make sure data was persisted.
+  - Use HTTP POSTs via Postman, curl, et al.
+- Request speaker list to verify data persisted.
 
 ???
 
@@ -1944,8 +2065,31 @@ class: center, middle, section-title
 
 ---
 
-TODO: Links
+class: center, middle, section-title
 
----
+# Thank You!
+--
 
-TODO: Thank you slide
+##PLEASE leave feedback
+
+### 3-question survey:
+
+.black-text[
+`http://bit.ly/2pERpb5`
+]
+
+## Questions?
+<div style="width: 100%;">
+  <div style="width: 50%; float: left; display: inline-block;">
+    Ian<br>
+    ian.zelikman@gmail.com<br>
+    @izcoder
+  </div>
+  <div style="width: 50%; display: inline-block;">
+    Dave<br>
+    dave@forgac.com<br>
+    @tylerdave
+  </div>
+</div>
+</div>
+

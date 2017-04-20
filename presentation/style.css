@@ -34,7 +34,7 @@
             padding: 10px;
        }
        .remark-inline-code {
-           font-size: 35px; 
+           font-size: 32px; 
        }
        .remark-code-line {
             min-height: 0px;
@@ -92,4 +92,7 @@
         width: 50%;
         float: right;
     }
+      .black-text {
+          color: black;
+      }
  
