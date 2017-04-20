@@ -188,17 +188,17 @@ class: center
 {
     "title": "Example Schema",
     "type": "object",
-	"properties": {
-		"displayName": {
-			"type": "string"
-		},
-		"age": {
-			"description": "Age in years",
-			"type": "integer",
-			"minimum": 0
-		}
-	},
-	"required": ["firstName", "lastName"]
+    "properties": {
+        "displayName": {
+            "type": "string"
+        },
+        "age": {
+            "description": "Age in years",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["firstName", "lastName"]
 }
 ```
 
@@ -220,7 +220,7 @@ class: center, padded-top
 ## (More) human-readable
 --
 
-## Subset of JSON
+## Superset of JSON
 --
 
 ## Broad Support
@@ -305,12 +305,10 @@ class: center, padded-top
 
 # Goals
 
-## TODO: Verify goals
-## An OpenAPI Spec
+## OpenAPI Spec
+## Testing
 ## Documentation
-## Mock Server
-## Tests
-## (Very Basic) Implementation
+## Basic Implementation
 
 ---
 
@@ -319,23 +317,23 @@ class: center
 ## Repo Layout
 
 ```
+├── implementation
+│   └── ...
 ├── lessons
-│   ├── lesson01
-│   │   └── example.yaml
-│   ├── lesson02
-│   │   ├── example.yaml
-│   │   └── solution.yaml
-│   ├── ...
-├── notes
-│   ├── prerequisites.md
-│   └── references.md
+│   ├── lesson-1.01
+│   │   ├── default_broken.yaml
+│   │   ├── echo_broken.yaml
+│   │   └── minimal_broken.yaml
+│   ├── lesson-1.02
+│   │   ├── example.json
+│  ... ...
+│   ├── lesson-2.01
+│   │   └── README.md
+│   └── ...
 ├── presentation
-│   ├── openapi-tutorial-slides.html
-│   └── openapi-tutorial-slides.md
-├── README.md
-└── spec
-    ├── betterapis.yaml
-    └── definitions.yaml
+│   └── ...
+└── work
+    └── README.md
 ```
 
 ---
