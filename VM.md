@@ -16,6 +16,12 @@ the repo directory. If it is not already running, start it with
 You can log in to the VM using `vagrant ssh` on the command line or by
 connecting to `localhost:2222` via ssh.
 
+### Suspending
+
+You may suspend the VM when you are not working with it by using
+`vagrant suspend` in the repo directory. You may then check the status and
+start it again using the commands above.
+
 VM Tools
 --------
 
