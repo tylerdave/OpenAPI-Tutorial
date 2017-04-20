@@ -22,13 +22,6 @@ produces:
   - application/json
 
 paths:
-  /:
-    get:
-      summary: Get a list of endpoints
-      description: Lists all API endpoints with links
-      responses:
-        200:
-          description: Returns a list of endpoints.
   /talks:
     get:
       summary: Get a list of talks
@@ -161,6 +154,36 @@ paths:
       responses:
         200:
           description: Speaker registration removed
+  /tracks:
+    post:
+      summary: Submit a track
+      description: track submission
+      parameters:
+        - name: track
+          in: body
+          description: track details
+          schema:
+            $ref: '#/definitions/Track'
+      responses:
+        201:
+          description: New track added.
+          schema:
+            required: [track_id]
+            properties:
+              track_id:
+                type: integer
+                description: Unique Id for the track in the system
+  /tracks/{track_id}:
+    parameters:
+      - $ref: '#/parameters/track_id'
+    get:
+      summary: Get track details
+      description: Retrieve details about a specific track
+      responses:
+        200:
+          description: Returns a specific track.
+          schema:
+            $ref: '#/definitions/Track'
 
 parameters:
   talk_id:
@@ -169,12 +192,21 @@ parameters:
     description: Talk identifier
     type: integer
     required: true
+    x-example: 2
   speaker_id:
     name: speaker_id
     in: path
     description: Speaker identifier
     type: integer
     required: true
+    x-example: 2
+  track_id:
+    name: track_id
+    in: path
+    description: Review identifier
+    type: integer
+    required: true
+    x-example: 1
 
 definitions:
   Talk:
@@ -242,10 +274,29 @@ definitions:
         maxLength: 50
         description: Speaker last name
       comments:
-        type: string
+        type: ["string", "null"]
         minLength: 50
         maxLength: 200
   Speakers:
     type: array
     items:
       $ref: "#/definitions/Speaker"
+  Track:
+    type: object
+    required: [name]
+    properties:
+      track-id:
+        type: integer
+        format: int32
+        description: unique id for the track
+        readOnly: true
+      name:
+        type: string
+        description: details of the track
+        minLength: 5
+        maxLength: 50
+      details:
+        type: ["string", "null"]
+        description: details of the track
+        minLength: 10
+        maxLength: 200
