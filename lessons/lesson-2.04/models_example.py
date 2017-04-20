@@ -3,7 +3,7 @@ from betterapis import db
 
 class Track(db.Model, SimpleSerializing):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Clumn(db.String)
+    name = db.Column(db.String)
     details = db.Column(db.String)
 
     def __init__(self, **kwargs):
