@@ -170,7 +170,7 @@ paths:
           schema:
             required: [track_id]
             properties:
-              review_id:
+              track_id:
                 type: integer
                 description: Unique Id for the track in the system
   /tracks/{track_id}:
@@ -203,7 +203,7 @@ parameters:
   track_id:
     name: track_id
     in: path
-    description: Review identifier
+    description: Track identifier
     type: integer
     required: true
     x-example: 1
