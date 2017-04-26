@@ -1,6 +1,5 @@
 from flask import jsonify, url_for
-
-from betterapis import api
+from betterapis.app import api
 
 
 def get():

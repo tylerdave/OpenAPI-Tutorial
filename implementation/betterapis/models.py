@@ -1,5 +1,5 @@
 import arrow
-from betterapis import db
+from betterapis.app import db
 
 class SimpleSerializing(object):
     """ A mixin to provide simple serialized output """

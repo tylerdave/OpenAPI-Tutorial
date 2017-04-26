@@ -1,6 +1,6 @@
 import logging
 from flask import jsonify, url_for
-from betterapis import api, db
+from betterapis.app import api, db
 from betterapis.models import Speaker
 
 def get(speaker_id):

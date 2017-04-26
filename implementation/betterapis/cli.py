@@ -1,6 +1,6 @@
 import click
 import logging
-from . import api, db
+from betterapis.app import api, db
 
 
 @click.group()
