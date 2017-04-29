@@ -24,7 +24,7 @@ git clone https://github.com/tylerdave/OpenAPI-Tutorial.git
 cd OpenAPI-Tutorial
 ```
 
-Then from wihtin the repo dir, start the Vagrant VM:
+Then from within the repo dir, start the Vagrant VM:
 
 ```
 vagrant up --provider virtualbox
@@ -102,3 +102,21 @@ If you're unable to get everything installed correctly, you can still follow
 most of the tutorial by using the online Swagger editor at
 http://editor.swagger.io/#/
 
+Recommended
+-----------
+
+### Postman
+In order to test your local application you should have a tool for performing HTTP requests.
+You are free to choose any tool you find comfortable and we recommend using [Postman](https://www.getpostman.com/)
+
+If you choose to use Postman download the version for your OS from the above link. A handy option is
+to use the Chrome extension.
+After downloading and installing Postman if this is your first time using the tool we recommend
+getting familiar with at least these two guides:
+
+[requests](https://www.getpostman.com/docs/requests)
+
+[collections](https://www.getpostman.com/docs/collections)
+
+Some of the exercises will contain a file named postman_collection and those will help you complete
+the exercise more quickly.
