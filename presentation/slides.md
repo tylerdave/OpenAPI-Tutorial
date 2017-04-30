@@ -1720,7 +1720,86 @@ class: center, middle, section-title
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.03: Mock Server
+
+## Goals
+
+ - Run mock server for client to experiment with the API
+
+???
+ - We will see how you can leverage connexion to also create you mock server.
+   This will give you the ability to present to the client a fully working API they can work against
+   And also fix any miss communications you had with clients.
+
+---
+
+class: lesson
+
+# Lesson 2.03: Mock Server
+
+## examples
+
+```
+responses:
+    200:
+      description: Returns a specific talk
+      schema:
+        $ref: '#/definitions/Pet'
+      examples:
+        application/json:
+          {
+            id: 12345,
+            name: "pythagoras",
+            status: "Adopted"
+          }
+```
+
+???
+ - Perhaps you noticed it when we previously were working on the API spec that you can specify
+   examples for the responses.
+   Connexion will use that in order to send mock responses.
+
+---
+
+class: lesson
+
+# Lesson 2.03: Mock Server
+
+## Usage
+
+```
+connexion run betterapis.yaml --mock=all -v
+```
+
+???
+
+- This is how you would run the mock server that connexion provides.
+  By default it is port 5000 buy you can run it on a different port.
+- You can use it to run mock server for any swagger spec.
+
+---
+
+class: lesson
+
+# Lesson 2.03: Mock Server
+
+## Exercise Instructions
+
+- Update all the responses to have examples
+
+- Run and test your mock server
+
+---
+
+class: center, middle, section-title
+
+# Exercise
+
+---
+
+class: lesson
+
+# Lesson 2.04: Test with Dredd
 
 ## Goals
 
@@ -1734,7 +1813,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.04: Test with Dredd
 
 ## Installation
 
@@ -1758,7 +1837,7 @@ dredd --version
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.04: Test with Dredd
 
 ## Usage
 
@@ -1794,7 +1873,7 @@ Run test now, with:
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.04: Test with Dredd
 
 ## How Dredd works
 
@@ -1819,7 +1898,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.04: Test with Dredd
 
 ## Parameter Example
 
@@ -1843,7 +1922,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 2.03: Test with Dredd
+# Lesson 2.04: Test with Dredd
 
 ## Exercise Instructions
 
@@ -1869,7 +1948,7 @@ class: center, middle, section-title
 
 class: solution
 
-# Solution 2.03
+# Solution 2.04
 
 ## Notes
 
@@ -1893,7 +1972,7 @@ class: solution
 
 class: lesson
 
-# Lesson 2.04: New Features
+# Lesson 2.05: New Features
 
 ## Goals
 
@@ -1908,7 +1987,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 2.04: New Features
+# Lesson 2.05: New Features
 
 ## Flow
 
@@ -1958,7 +2037,7 @@ class: center, middle, demo
 
 class: lesson
 
-# Lesson 2.04: New Features
+# Lesson 2.05: New Features
 
 ## Exercise Instructions
 
@@ -1980,13 +2059,13 @@ class: center, middle, section-title
 
 class: solution
 
-# Solution 2.04
+# Solution 2.05
 
 ---
 
 class: lesson
 
-# Lesson 2.05: Documentation
+# Lesson 2.06: Documentation
 
 ## Goals
 
@@ -2000,7 +2079,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 2.05: Documentation
+# Lesson 2.06: Documentation
 
 ## Tooling
 
@@ -2037,7 +2116,7 @@ class: center, middle, demo
 
 class: lesson
 
-# Lesson 2.05: Documentation
+# Lesson 2.06: Documentation
 
 ## Exercise Instructions
 

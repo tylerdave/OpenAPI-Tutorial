@@ -31,29 +31,6 @@ paths:
           description: Returns a list of talk. Pagination supported.
           schema:
             $ref: '#/definitions/Talks'
-          examples:
-            application/json:
-              [
-                {
-                  id: 9999,
-                  title: "Open API Presentation",
-                  speaker_id: 1111,
-                  abstract: "This presentation will give a premier of the Open API specification",
-                  duration: 60,
-                  comments: "Presented before in various conferences",
-                  scheduled-on: "2017-05-08T17:31:39+00:00"
-                },
-                {
-                  id: 5000,
-                  title: "Open API Tutorial",
-                  speaker_id: 2222,
-                  abstract: "This tutorial gives hands on experience",
-                  duration: 60,
-                  comments: "Presented before in various conferences",
-                  scheduled-on: "2017-05-08T17:31:39+00:00"
-                }
-              ]
-
     post:
       summary: Submit a new talk
       description: Results in a new talk submitted
@@ -72,9 +49,6 @@ paths:
               talk_id:
                 type: number
                 description: Unique Id for the talk in the system
-          examples:
-            application/json:
-                "talk_id": 1111
 
   /talks/{talk_id}:
     parameters:
@@ -110,16 +84,12 @@ paths:
       responses:
         200:
           description: Talk updated
-          examples:
-            application/json:
     delete:
       summary: Remove a talk
       description: Remove a talk submission
       responses:
         200:
           description: Talk submission removed
-          examples:
-            application/json:
   /speakers:
     get:
       summary: List of speakers
@@ -129,22 +99,6 @@ paths:
           description: Returned a list of speakers.
           schema:
             $ref: '#/definitions/Speakers'
-          examples:
-            application/json:
-              [
-                {
-                  id: 9999,
-                  first_name: "John",
-                  last_name: "Doe",
-                  comments: "Best presenter!"
-                },
-                {
-                  id: 4000,
-                  first_name: "bill",
-                  last_name: "Doe",
-                  comments: "API expert"
-                }
-              ]
     post:
       summary: Sign up as a speaker
       description: Operation to support speaker registration and submit all details
@@ -163,9 +117,6 @@ paths:
               speaker_id:
                 type: number
                 description: Unique Id for the talk in the system
-          examples:
-            application/json:
-                "speaker_id": 2
   /speakers/{speaker_id}:
     parameters:
       - $ref: '#/parameters/speaker_id'
@@ -197,16 +148,12 @@ paths:
       responses:
         200:
           description: Speaker details updated
-          examples:
-            application/json:
     delete:
       summary: Remove speaker
       description: Remove a speaker registration
       responses:
         200:
           description: Speaker registration removed
-          examples:
-            application/json:
 
 parameters:
   talk_id:
