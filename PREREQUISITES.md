@@ -105,18 +105,21 @@ http://editor.swagger.io/#/
 Recommended
 -----------
 
+In order to test the API implementation locally, you should have a tool for 
+making HTTP requests. You are free to use any tool you are comfortable with. We
+recommend Postman for this purpose if you don't have a strong preference.
+
 ### Postman
-In order to test your local application you should have a tool for performing HTTP requests.
-You are free to choose any tool you find comfortable and we recommend using [Postman](https://www.getpostman.com/)
 
-If you choose to use Postman download the version for your OS from the above link. A handy option is
-to use the Chrome extension.
-After downloading and installing Postman if this is your first time using the tool we recommend
-getting familiar with at least these two guides:
+Postman can be installed as a native application or a Chrome plugin.
 
-[requests](https://www.getpostman.com/docs/requests)
+Get Postmane here: [Download Postman](https://www.getpostman.com/)
 
-[collections](https://www.getpostman.com/docs/collections)
+If this is your first time using Postman, we recommend using these guides in
+order to get familiar with the tool:
 
-Some of the exercises will contain a file named postman_collection and those will help you complete
-the exercise more quickly.
+- [requests](https://www.getpostman.com/docs/requests)
+- [collections](https://www.getpostman.com/docs/collections)
+
+Some of the tutorial lesson directories contain a file named 
+`postman_collection`. These will help you complete the exercises more quickly.

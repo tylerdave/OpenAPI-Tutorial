@@ -11,6 +11,12 @@ You can check the status of the VM by running `vagrant status` from within
 the repo directory. If it is not already running, start it with
 `vagrant up --provider virtualbox`.
 
+### Keep Up-to-Date
+
+On the day of the tutorial, make sure to `git pull` the latest updates to the 
+repo and then run `vagrant provision` in order to make sure the VM has the
+latest updates.
+
 ### Logging In
 
 You can log in to the VM using `vagrant ssh` on the command line or by
@@ -24,6 +30,13 @@ start it again using the commands above.
 
 VM Tools
 --------
+
+### Shared Directory
+
+Vagrant is configured to map this repo directory to a directory called 
+`tutorial-repo` in the ssh user's home directory. This will allow you to edit
+files on your host machine using your preferred editor while also being able
+to edit and validate them while logged-in via ssh. 
 
 ### Swagger Editor
 
