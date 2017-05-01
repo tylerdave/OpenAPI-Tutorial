@@ -17,7 +17,7 @@ def post(speaker):
     # find the url of the new speaker
     new_speaker_url = url_for('.betterapis_controllers_speakers_get',
             speaker_id=new_speaker.id)
-    # build a 201 Created response with a locaiton header and empty body
+    # build a 201 Created response with a location header and empty body
     response = jsonify(speaker_id=new_speaker.id)
     response.status_code = 201
     response.headers = {'Location': new_speaker_url}

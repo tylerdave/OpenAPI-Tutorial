@@ -17,7 +17,7 @@ def post(talk):
     # find the url of the new talk
     new_talk_url = url_for('.betterapis_controllers_talks_get',
             talk_id=new_talk.id)
-    # build a 201 Created response with a locaiton header and empty body
+    # build a 201 Created response with a location header and empty body
     response = jsonify(talk_id=new_talk.id)
     response.status_code = 201
     response.headers = {'Location': new_talk_url}

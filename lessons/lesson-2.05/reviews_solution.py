@@ -13,7 +13,7 @@ def post(review):
     # save the new talk to the database
     db.session.add(new_review)
     db.session.commit()
-    # build a 201 Created response with a locaiton header and empty body
+    # build a 201 Created response with a location header and empty body
     response = jsonify(review_id=new_review.id)
     response.status_code = 201
     return response
