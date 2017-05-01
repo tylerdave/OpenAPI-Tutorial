@@ -235,7 +235,7 @@ class: center, padded-top
 - YAML stands for YAML aint markup language
 - ~ It's a serializatin format
 - ~ meant to be more readable than JSON
-- ~ It's actually a subset of JSON and can be converted to JSON
+- ~ It's actually a superset of JSON and can be converted to JSON
 - ~ It has broad language support so it's starting to be used in a lot of places
 
 ---
@@ -261,9 +261,9 @@ class: center, middle
 
 ```
 ---
-person:
-  name: Ian
-  occupation: Developer
+session:
+  title: Contract-First API Development
+  type: tutorial
 ...
 ```
 
@@ -295,16 +295,17 @@ class: center, middle
 
 ```
 ---
-person:
-  name: Ian
-  occupation: Developer
-  skills:
+session:
+  name: Contract-First API Development
+  type: tutorial
+  topics:
     - apis
+    - openapi specification
     - swagger
-  languages: ['java', 'python']
-  bio: >
-    Ian is really awesome and you should listen
-    to him.
+  languages: ['java', 'nodejs', 'python']
+  description: >
+    A really useful tutorial during which you'll
+    learn about API specifications and stuff.
 ...
 ```
 
@@ -2149,12 +2150,12 @@ class: center, middle, section-title
 # Thank You!
 --
 
-##PLEASE leave feedback
+## *Please* leave feedback
 
 ### 3-question survey:
 
 .black-text[
-`http://bit.ly/2pERpb5`
+`TODO: Feedback URL`
 ]
 
 ## Questions?

@@ -9,6 +9,10 @@
         font-family: 'Alegreya Sans SC', sans-serif;
         font-weight: normal;
       }
+      p {
+          margin-top: 0px;
+          margin-bottom: 5px;
+      }
       .remark-notes {
           font-size: 125%;
       }
