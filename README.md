@@ -8,11 +8,11 @@ https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56579
 Getting Started
 ---------------
 
-To follow this tutorial you will need to have everything installed as 
-described in [PREREQUISITES.md](PREREQUISITES.md).
+To follow this tutorial you will need a clone of this repo and to have
+everything installed as described in [PREREQUISITES.md](PREREQUISITES.md).
 
 If you're using the recommended VM option, see [VM.md](VM.md) for more usage
-information.
+information after you have everything installed.
 
 Repo Contents
 -------------
@@ -20,4 +20,4 @@ Repo Contents
 - [lessons](lessons/): Tutorial lesson examples and solution files.
 - [implementation](implementation/): Example implementation using Connexions.
 - [presentation](presentation/): HTML presentation and source.
-
+- [work](work/): Working directory for your lessons.

@@ -113,7 +113,7 @@ recommend Postman for this purpose if you don't have a strong preference.
 
 Postman can be installed as a native application or a Chrome plugin.
 
-Get Postmane here: [Download Postman](https://www.getpostman.com/)
+Get Postman here: [Download Postman](https://www.getpostman.com/)
 
 If this is your first time using Postman, we recommend using these guides in
 order to get familiar with the tool:
