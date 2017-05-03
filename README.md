@@ -8,8 +8,10 @@ https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56579
 Getting Started
 ---------------
 
-To follow this tutorial you will need a clone of this repo and to have
-everything installed as described in [PREREQUISITES.md](PREREQUISITES.md).
+To follow this tutorial you will need:
+
+1. A clone of this repo
+2. Tools installed as described in [PREREQUISITES.md](PREREQUISITES.md).
 
 If you're using the recommended VM option, see [VM.md](VM.md) for more usage
 information after you have everything installed.
