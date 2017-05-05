@@ -555,12 +555,6 @@ class: lesson
   with similar name.
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: solution
 
 # Solution 1.01
@@ -635,12 +629,6 @@ class: lesson
 
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: solution
 
 # Solution 1.02
@@ -704,12 +692,6 @@ class: lesson
 ???
 - These are the two main paths we will work with. We want to start with a small step to define them
   as you might sometime do with not having the documentation complete and then iterate on that.
-
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -822,11 +804,6 @@ class: lesson
 - You will add the POST actions in order to register the speaker and submit talk.
 
 - Free to be creative as would like in order to define the objects.
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -974,12 +951,6 @@ class: lesson
 - In part 2 only define 2xx responses. We will cover other responses later.
 
 ---
-
-class: center, middle, section-title
-
-# Exercise
-
----
 class: solution
 
 # Solution 1.05
@@ -1115,12 +1086,6 @@ class: lesson
 - Add pagination to the `/talks` and `/speakers` paths. Pagination should be included by at least
   two parameters: `page-size`, `page-number`.
 - Add the following responses to all paths: 400, 500, default.
-
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -1270,12 +1235,6 @@ class: lesson
 
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: solution
 
 # Solution 1.07
@@ -1377,12 +1336,6 @@ class: lesson
 
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: solution
 
 # Solution 1.08
@@ -1481,12 +1434,6 @@ class: lesson
 - Split your API spec.
   The proposed scheme is to have separate file for definitions, parameters and responses.
   You can consider other split strategies.
-
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -1622,11 +1569,6 @@ class: lesson
  - Run the server using the instructions and test results you are seeing on the different paths.
 
  - Test out the client side code by pointing it to your sever and test the results you are getting.
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -1713,12 +1655,6 @@ class: lesson
 
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: lesson
 
 # Lesson 2.03: Mock Server
@@ -1789,12 +1725,6 @@ class: lesson
 - Update all the responses to have examples
 
 - Run and test your mock server
-
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -1941,12 +1871,6 @@ class: lesson
 
 ---
 
-class: center, middle, section-title
-
-# Exercise
-
----
-
 class: solution
 
 # Solution 2.04
@@ -2050,11 +1974,6 @@ class: lesson
  - We want to add a feature with a **GET** and a **POST** where people submit a review of a talk.
 
  - Make sure you have the **tests pass** after implementing the code.
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
@@ -2124,12 +2043,6 @@ class: lesson
 - Register a new speaker and submit a talk using the connexion UI.
 
 - Use the UI to also update and delete the talk and the speaker.
-
----
-
-class: center, middle, section-title
-
-# Exercise
 
 ---
 
