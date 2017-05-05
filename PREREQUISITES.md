@@ -5,6 +5,9 @@ In order to follow-along with the exercises in this tutorial you will need
 to install some applications and tooling. Installation can take a while so
 please try to make sure everything is installed before the session.
 
+**Clarification:** You may have seen instructions telling you have Node.js installed on your system. If you use Option 1, Node.js will be included on the
+VM so you don't need it on your host system.
+
 Option 1: Vagrant + VirtualBox (recommended)
 -------------------------------------------
 
@@ -48,6 +51,9 @@ See [VM.md](VM.md) for more usage information.
 
 Option 2: Manual Installation
 -----------------------------
+
+*Only use this option if you're comfortable troubleshooting problems on your
+own. We will not be able to offer much help with self-installed tools.*
 
 If you prefer to install all the tools into your own development environment,
 you may install the following:
