@@ -57,7 +57,7 @@ parameters:
     name: pet-id
     in: path
     description: Pet identifier
-    type: number
+    type: integer
     required: true
     x-example: 42
 

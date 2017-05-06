@@ -939,7 +939,7 @@ class: lesson
 1. Refactor your API to use `Talk` and `Speaker` objects.
    Define `Talks` and `Speakers` objects based on the previous and update the responses from
    `/speakers` and `/talks` paths.
-2. Add a two new paths `/speaker/{speaker-id}` and `/talk/{talk-id}`.
+2. Add a two new paths `/speakers/{speaker-id}` and `/talks/{talk-id}`.
    Define all the CRUD operations for them and use parameter definition outside of the action for
    path parameter.
 
@@ -1064,7 +1064,7 @@ class: lesson
 
 responses:
   UnknownResponse:
-    description: This response is not yet docuemtned by this API.
+    description: This response is not yet documented by this API.
 ```
 
 ???
@@ -1189,7 +1189,7 @@ security:
 - Oauth security and it defines **full* Oauth **flow** in a very simple and readable way.
   We even defined that we have two scopes we support which are the user and the admin.
 - The second object is the security object and it sets in the global level the security for all
-  paths but it an be overwritten.
+  paths but it can be overwritten.
 ---
 
 class: lesson
@@ -1322,6 +1322,8 @@ tags:
 ???
  - tags are used in order to indicate to automatic tools of **logical groupings**
    for the APIs operations.
+ - Here we see a tag is defined in the root level in the tags container and then used in one of the
+   actions.
 
 ---
 
@@ -1511,7 +1513,7 @@ class: lesson
 
 class: center, middle, demo
 
-# Generate Server (Flask)
+# Generate Server
 
 ???
 
@@ -1539,7 +1541,7 @@ class: center, middle, demo
 
 class: center, middle, demo
 
-# Generate Client (Python)
+# Generate Client
 
 ???
 - A lot of tools generate server code for you. Here with the editor we can also generate client code.
@@ -1598,16 +1600,13 @@ class: lesson
 ???
  - By using the code generator you saw how your code can be automatically generated from the spec.
 
- - This however can't be done while you are **developing new features**. In order to keep your
-   contract up to date with the implementation we are using a layer on top of a Flask application
-   called **connexion**
+ - We will look at a small application similar to the the one generated from the swagger generator
+   and it is using a layer called connexion.
 
- - **Connexion** defines the routing for you, and validates the input and output based on the spec.
-   This way you are only left with writing the implementation as you already wrote the spec so that
-   all should be automatic.
+ - **connexion** stands as a layer on top of out Python/Flask code and does the route mapping
+   for us from the spec into the logic.
 
- - We will look now at the implementation of the sample application you have in your VM that was
-   created using this package on top of Flask.
+ - Connexion can also do request and responses validation for us.
 
 ---
 
@@ -1651,7 +1650,8 @@ class: lesson
  - This lesson is meant to get you familiarized with the connexion app.
 
  - Use the tool you like most to make HTTP requests. **Postman** is recommended.
-   If you use PyCharm/Intelij it has a similar tool as well.
+
+ - In the lesson directory you will find a postman collection you can use for the exercise.
 
 ---
 
@@ -1705,7 +1705,9 @@ class: lesson
 ## Usage
 
 ```
+
 connexion run betterapis.yaml --mock=all -v
+
 ```
 
 ???
@@ -1722,10 +1724,14 @@ class: lesson
 
 ## Exercise Instructions
 
-- Update all the responses to have examples
+- Update responses to have examples
 
 - Run and test your mock server
 
+
+???
+
+ - Update as many responses as you would like and test your mock server.
 ---
 
 class: lesson
@@ -1763,7 +1769,8 @@ dredd --version
   the installation might be more complicated depends on your environment.
 - Please also note that although it can be installed it is not supported on Windows machines.
   This feature is on the road map.
-- As it is written in **CoffeeScript** it is installed with npm. (TODO: It is already installed on the VMs??)
+- As it is written in **CoffeeScript** it is installed with npm.
+  It is already installed in your VMs.
 ---
 
 class: lesson

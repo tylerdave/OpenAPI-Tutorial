@@ -1,0 +1,119 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OpenApi Tutorial",
+		"_postman_id": "ad7f4d1a-fdf6-d824-9a65-37b1ec831c92",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "connexions_test",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:8080/speakers",
+					"request": {
+						"url": "http://localhost:8080/speakers",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Ian\",\n  \"last_name\": \"Zelikman\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/speakers",
+					"request": {
+						"url": "http://localhost:8080/speakers",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"first_name\": \"Dave\",\n  \"last_name\": \"Forgac\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/speakers",
+					"request": {
+						"url": "http://localhost:8080/speakers",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/talks",
+					"request": {
+						"url": "http://localhost:8080/talks",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Just another API talk\",\n\t\"speaker_id\": 2,\n\t\"abstract\": \"This talk will focus on general topics on API design.\",\n\t\"duration\": 75\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/talks",
+					"request": {
+						"url": "http://localhost:8080/talks",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Design the API of the future\",\n\t\"speaker_id\": 2,\n\t\"abstract\": \"This talk will focus on general topics on API design in the future.\",\n\t\"duration\": 45\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/talks",
+					"request": {
+						"url": "http://localhost:8080/talks",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
