@@ -6,5 +6,26 @@
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
-	"item": []
+	"item": [
+		{
+			"name": "http://localhost:8080/tracks",
+			"request": {
+				"url": "http://localhost:8080/tracks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"fast trak\",\n\t\"details\": \"the fastest track\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
 }
