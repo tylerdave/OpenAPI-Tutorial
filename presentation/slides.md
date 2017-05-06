@@ -1974,7 +1974,7 @@ class: lesson
 ## Exercise Instructions
 
 - Add a new feature to the application to support reviews.
-  Besides a unique `id` the track object should reference the `talk_id` it refers to and `details`.
+  Besides a unique `id` the review object should reference the `talk_id` it refers to and `details`.
 
 
 ???
