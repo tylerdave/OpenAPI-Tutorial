@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   config.ssh.keep_alive = true
   config.ssh.username = "ubuntu"
   config.vm.synced_folder ".", "/home/ubuntu/tutorial-repo"
+  config.vm.network "forwarded_port", guest: 5000, host: 5000  # connexion Mok
   config.vm.network "forwarded_port", guest: 8080, host: 8080  # connexion API
   config.vm.network "forwarded_port", guest: 8000, host: 8000  # swagger-editor
   config.vm.network "forwarded_port", guest: 8001, host: 8001  # swagger-editor-v3
