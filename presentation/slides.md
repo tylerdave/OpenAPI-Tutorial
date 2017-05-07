@@ -57,8 +57,6 @@ class: center, middle
 ???
 - If you don't have the prerequisites installed yet, you should be following the directions to do so now.
 - Once do, we'd like you to verify that they're working.
-- You can do this by first opening TODO: directions for editor
-- Then run TODO: directions for CLI test
 
 ---
 
@@ -1458,9 +1456,15 @@ class: center, middle, section-title
 
 ---
 
-class: center, padded-top
+class: center, middle, section-title
 
 # Code Generation
+
+---
+
+class: center, padded-top
+
+# Code Generators
 --
 
 ## Servers
@@ -1470,19 +1474,34 @@ class: center, padded-top
 
 ---
 
-class: center
+class: center, padded-top
 
 # Swagger-Codegen
 --
 
 ## Via editor
 
-`https://generator.swagger.io/`
+Calls to `https://generator.swagger.io/`
 --
 
 ## Via CLI
 
 `http://swagger.io/swagger-codegen/`
+
+---
+
+class: center
+
+# Integrated Frameworks
+--
+
+## Swagger Inflector (Java)
+--
+
+## swagger-node (Node.js)
+--
+
+## Connexion (Python)
 
 ---
 
@@ -1585,6 +1604,164 @@ class: solution
 - In case you didn't get to the `bonus` part I will show how I updated the Flask implementation to
   return an empty list from the controller and also by following the instructions in the README
   that was generated will test the response from the server.
+
+---
+
+class: center, middle, section-title
+
+# Connexion
+
+---
+
+class: center, padded-top
+
+# Connexion
+--
+
+## Python + Flask
+--
+
+## Spec as configuration
+--
+
+## Routing, validation, etc.
+--
+
+---
+
+class: center
+
+# Explicit Routing
+--
+
+### Explicit Function Name
+
+```
+paths:
+  /hello_world:
+    post:
+      operationId: myapp.api.hello_world
+```
+--
+
+### Separate Controller Name
+
+```
+paths:
+  /hello_world:
+    post:
+      x-swagger-router-controller: myapp.api
+      operationId: hello_world
+```
+
+---
+
+class: center, padded-top
+
+# Automatic Routing
+--
+
+```
+from connexion.resolver import RestyResolver
+
+app = connexion.FlaskApp(__name__)
+app.add_api('swagger.yaml', resolver=RestyResolver('api'))
+```
+
+---
+
+class: center
+
+## Automatic Route Resolution
+
+```
+paths:
+  /:
+    get:
+       # Implied operationId: api.get
+  /foo:
+    get:
+       # Implied operationId: api.foo.search
+    post:
+       # Implied operationId: api.foo.post
+  '/foo/{id}':
+    get:
+       # Implied operationId: api.foo.get
+    put:
+       # Implied operationId: api.foo.put
+    copy:
+       # Implied operationId: api.foo.copy
+    delete:
+       # Implied operationId: api.foo.delete
+```
+
+---
+
+class: center, padded-top
+
+# Request Validation
+--
+
+## JSON Schema
+--
+
+### Required parameters
+--
+
+### Types and Formats
+--
+
+## Custom Validators
+--
+
+## HTTP 400 w/ Details
+
+---
+
+class: center, padded-top
+
+# Response Handling
+--
+
+## Serialization
+--
+
+## JSON Encoder
+--
+
+## Validation Optional
+--
+
+## Custom Validators
+
+---
+
+class: center, padded-top2
+
+# Security
+--
+
+## OAuth 2 via Spec
+--
+
+## API Key & Basic Unsupported
+--
+
+---
+
+class: center, padded-top2
+
+# Other Features
+--
+
+## Swagger UI
+--
+
+## Swagger JSON
+--
+
+## Flask Integration
+--
 
 ---
 
@@ -2069,14 +2246,6 @@ class: center, middle, section-title
 
 # Thank You!
 --
-
-## *Please* leave feedback
-
-### 3-question survey:
-
-.black-text[
-`TODO: Feedback URL`
-]
 
 ## Questions?
 <div style="width: 100%;">
