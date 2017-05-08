@@ -568,6 +568,8 @@ class: solution
 
 # Solution 1.01
 
+## Notes
+
 - Got familiar with basic OpenAPI Spec structure
 
 ???
@@ -672,6 +674,8 @@ class: lesson
 
 # Lesson 1.03: Pets
 
+## Basic Path
+
 ```
     /pets:
       get:
@@ -686,8 +690,8 @@ class: lesson
 - An example of the paths object that contains a list of **path Item object**
 - Path item object is **relative to the base path** and contains a list of valid http operations
 - **operation object** Is where the interesting logic happens and it holds some metadata about the
-  operation (sumamry, description) and as we will see later a bit more.
-- **reponse object** is how we can define the entire response body/headers etc. For now we just see
+  operation (summary, description) and as we will see later a bit more.
+- **response object** is how we can define the entire response body/headers etc. For now we just see
   one response code supported and description.
   Later we will expand to describe all the data returned in this response.
 
@@ -700,7 +704,6 @@ class: lesson
 
 - Add two paths to the API: `/talks` `/speakers`.
 - Both paths only support GET and only return status code 200.
-- No documentation for data returned is required.
 
 ???
 - These are the two main paths we will work with. We want to start with a small step to define them
@@ -797,10 +800,11 @@ class: lesson
 ```
 
 ???
+- This continues the action we saw in the previous slide.
 - Responses is a container with the **status codes** acting as the **field pattern** and inside we have
   as you see the **response object**
-- Response object will have a **description**. Optional: **schema, headers, example**
-
+- Response object will have a **description**. Optional: **schema, headers and
+  examples array**
 ---
 
 class: lesson
@@ -834,6 +838,8 @@ class: solution
   grained documentation.
 
 - **readOnly** specifies that it is only passed in response but won't be passed on the request.
+
+- **format** gives you more fine tuning of the type passed. int32(format) vs. integer(type).
 
 ---
 
@@ -1189,7 +1195,9 @@ securityDefinitions:
     scopes:
       admin: Admin scope
       user: User scope
+```
 
+```
 security:
   - OauthSecurity:
     - user
@@ -1455,6 +1463,8 @@ class: solution
 
 # Solution 1.09
 
+## Notes
+
 - A better-organized specification
 
 ---
@@ -1563,7 +1573,7 @@ class: center
 
 class: lesson
 
-# Lesson 2.01: Automatic Code Generation
+# Lesson 2.01: Code Generation
 
 ## Goals
 
@@ -1632,7 +1642,7 @@ class: center, middle, demo
 
 class: lesson
 
-# Lesson 2.01: Automatic Code Generation
+# Lesson 2.01: Code Generation
 
 ## Exercise Instructions
 
@@ -1836,13 +1846,11 @@ class: lesson
 ???
  - By using the code generator you saw how your code can be automatically generated from the spec.
 
- - We will look at a small application similar to the the one generated from the swagger generator
-   and it is using a layer called connexion.
+ - We will look now at an implementation of the spec we built using
+   python/flask/connexion.
 
- - **connexion** stands as a layer on top of out Python/Flask code and does the route mapping
-   for us from the spec into the logic.
-
- - Connexion can also do request and responses validation for us.
+ - We will be able to see how you use the frameworks Dave talked about to actually
+   have a production application.
 
 ---
 
@@ -2333,6 +2341,17 @@ class: solution
 ???
 You see great documentation generated from the spec and even the consoles.
 Different tools let you customize the representation.
+
+---
+
+# Part 2 Recap
+
+- 2.01: Code Generation
+- 2.02: Run the API
+- 2.03: Mock Server
+- 2.04: Test with Dredd
+- 2.05: New Features
+- 2.06: Documentation
 
 ---
 
