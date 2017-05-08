@@ -38,9 +38,8 @@ class: center, middle
 
 class: center, middle
 
-# Get Set Up
-# `https://github.com/tylerdave/OpenAPI-Tutorial/`
-## `PREREQUISITES.md`
+# BetterAPIs.com
+## `https://github.com/tylerdave/OpenAPI-Tutorial/`
 
 ???
 - We put together a simple website for this tutorial.
@@ -439,7 +438,6 @@ class: center
 --
 
 ## Documentation
---
 
 ---
 
@@ -1498,7 +1496,7 @@ class: center, middle, section-title
 
 class: center, middle, section-title
 
-# Benefits
+# What do we get?
 --
 
 ---
@@ -1537,6 +1535,9 @@ class: center, padded-top
 --
 
 ## Clients
+--
+
+## Documentation
 
 ---
 
@@ -1545,7 +1546,7 @@ class: center, padded-top
 # Swagger-Codegen
 --
 
-## Via editor
+## Via Swagger editor
 
 Calls to `https://generator.swagger.io/`
 --
@@ -1805,7 +1806,7 @@ class: center, padded-top
 
 ---
 
-class: center, padded-top2
+class: center, padded-top
 
 # Security
 --
@@ -1813,12 +1814,13 @@ class: center, padded-top2
 ## OAuth 2 via Spec
 --
 
-## API Key & Basic Unsupported
---
+## DIY
+### API Key
+### Basic Auth
 
 ---
 
-class: center, padded-top2
+class: center, padded-top
 
 # Other Features
 --
