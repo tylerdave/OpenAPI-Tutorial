@@ -51,17 +51,28 @@ class: center, middle
 
 ---
 
-class: center, middle
+class: center
 
 # Updates
 
-## `git pull`
+### Get repo updates
 
-## `vagrant suspend`
+```
+git pull
+```
 
-## `vagrant reload --provision`
+### Reprovision VM
 
-## `vagrant ssh`
+```
+vagrant suspend  
+vagrant reload --provision
+```
+
+### Log in
+
+```
+vagrant ssh
+```
 
 ???
 - If you don't have the prerequisites installed yet, you should be following the directions to do so now.
@@ -464,6 +475,18 @@ class: center
 │   └── ...
 └── work
 ```
+
+---
+
+class: center, padded-top
+
+# Synced Folder
+
+### Repo dir on host
+
+### mapped to
+
+### `/home/ubuntu/tutorial-repo/` on VM
 
 ---
 
