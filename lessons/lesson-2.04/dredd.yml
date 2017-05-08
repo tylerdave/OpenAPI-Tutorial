@@ -30,5 +30,5 @@ hooks-worker-term-retry: 500
 hooks-worker-handler-host: 127.0.0.1
 hooks-worker-handler-port: 61321
 config: ./dredd.yml
-blueprint: implementation/betterapis/specs/betterapis.yaml
+blueprint: tutorial-repo/implementation/betterapis/specs/betterapis.yaml
 endpoint: 'http://127.0.0.1:8080'
