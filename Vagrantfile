@@ -26,4 +26,7 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
   # end
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+  config.vm.provision "shell",
+    inline: "echo -e \"vagrant\nvagrant\" | passwd ubuntu | 2>&1"
 end
