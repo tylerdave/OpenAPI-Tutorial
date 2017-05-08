@@ -1,5 +1,5 @@
 from flask import jsonify, url_for
-from betterapis import api, db
+from betterapis.app import api, db
 from betterapis.models import Review
 
 def get(review_id):
