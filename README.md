@@ -28,3 +28,9 @@ Repo Contents
 - [implementation](implementation/): Example implementation using Connexions.
 - [presentation](presentation/): HTML presentation and source.
 - [work](work/): Working directory for your lessons.
+
+More Resources
+--------------
+
+See [BetterAPIs.com](http://betterapis.com/) for slides and links to further
+reading.
