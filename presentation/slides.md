@@ -32,6 +32,12 @@ class: center, middle
 
 class: center, middle
 
+# Questions
+
+---
+
+class: center, middle
+
 # Get Set Up
 # `https://github.com/tylerdave/OpenAPI-Tutorial/`
 ## `PREREQUISITES.md`
@@ -48,9 +54,11 @@ class: center, middle
 
 class: center, middle
 
-# Verify Your Installation
+# Updates
 
-## `vagrant up`
+## `git pull`
+
+## `vagrant reload`
 
 ## `vagrant ssh`
 
@@ -413,7 +421,7 @@ class: center, middle, section-title
 
 ---
 
-class: center, padded-top
+class: center
 
 # Goals
 --
@@ -424,10 +432,14 @@ class: center, padded-top
 ## Testing
 --
 
-## Documentation
+## Mock
 --
 
 ## Basic Implementation
+--
+
+## Documentation
+--
 
 ---
 
@@ -481,7 +493,6 @@ class: solution
 ## Stuck?
 
 - Copy `lessons/lesson-x.xx/solution.xxx` to `work`
-
 
 ---
 
@@ -557,6 +568,7 @@ class: solution
 
 # Solution 1.01
 
+- Got familiar with basic OpenAPI Spec structure
 
 ???
 - In the exercise you had the opportunity to better familiarize yourself with Open API spec structure.
@@ -652,8 +664,11 @@ class: lesson
 
 ???
 - This lesson is intended to just show the **path object**.
-  It is another (small)step in adding functionality to the API.
+- It is another (small)step in adding functionality to the API.
+
 ---
+
+class: lesson
 
 # Lesson 1.03: Pets
 
@@ -766,7 +781,7 @@ class: lesson
 
 # Lesson 1.04: Registration
 
-## Response
+## Paths, Actions (contd.)
 
 ```
         responses:
@@ -1140,7 +1155,7 @@ securityDefinitions:
 
 class: lesson
 
-# Lesson 1.07: Secure Your APIs.
+# Lesson 1.07: Secure Your APIs
 
 ## API Key
 
@@ -1202,7 +1217,6 @@ paths:
     parameters:
           - $ref: '#/parameters/pet-id'
     post:
-      summary: Upload a pet picture
       description: Admin operation to upload a pet picture
       operationId: UploadPicture
       security:
@@ -1252,7 +1266,7 @@ class: solution
 
 class: lesson
 
-# Lesson 1.08: Document the Documentation
+# Lesson 1.08: Doc the Docs
 
 ## Goals
 
@@ -1265,7 +1279,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 1.08: Document the Documentation
+# Lesson 1.08: Doc the Docs
 
 ## OperationId
 
@@ -1299,7 +1313,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 1.08: Document the Documentation
+# Lesson 1.08: Doc the Docs
 
 ## Tags
 
@@ -1327,7 +1341,7 @@ tags:
 
 class: lesson
 
-# Lesson 1.08: Document The Documentation
+# Lesson 1.08: Doc the Docs
 
 ## Exercise Instructions
 
@@ -1353,7 +1367,7 @@ class: solution
 
 class: lesson
 
-# Lesson 1.09: This is Long, Can we Split This?
+# Lesson 1.09: Can We Split This?
 
 ## Goals
 
@@ -1367,7 +1381,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 1.09: This is Long, Can we split this?
+# Lesson 1.09: Can We Split This?
 
 ## Reference External Files
 
@@ -1390,7 +1404,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 1.09: This is Long, Can we Split This?
+# Lesson 1.09: Can We Split This?
 
 ## parameters.yaml
 
@@ -1416,7 +1430,7 @@ Parameters:
 
 class: lesson
 
-# Lesson 1.09: This is Long, Can we Split This?
+# Lesson 1.09: Can We Split This?
 
 ## Serving External Files
 
@@ -1427,7 +1441,7 @@ class: lesson
 
 class: lesson
 
-# Lesson 1.09: This is Long, Can we Split This?
+# Lesson 1.09: Can We Split This?
 
 ## Exercise Instructions
 
@@ -1441,6 +1455,22 @@ class: solution
 
 # Solution 1.09
 
+- A better-organized specification
+
+---
+
+# Part 1 Recap
+
+- 1.01: Setup
+- 1.02: Hello, World!
+- 1.03: Pets
+- 1.04: Registration
+- 1.05: The Minimalist API
+- 1.06: Responses
+- 1.07: Secure Your APIs
+- 1.08: Doc the Docs
+- 1.09: Can We Split This?
+
 ---
 class: center, middle, demo
 
@@ -1453,6 +1483,32 @@ class: center, middle, section-title
 # Contract-first API development
 ## using the OpenAPI Specification<br/>(fka Swagger)
 # Part 2
+
+---
+
+class: center, middle, section-title
+
+# Benefits
+--
+
+---
+
+class: center, padded-top
+
+# Benefits
+--
+
+## Documentation
+--
+
+## Mocking
+--
+
+## Testing
+--
+
+## Code Generation
+--
 
 ---
 
@@ -1624,10 +1680,10 @@ class: center, padded-top
 ## Python + Flask
 --
 
-## Spec as configuration
+## Spec As Configuration
 --
 
-## Routing, validation, etc.
+## Routing, Validation, etc.
 --
 
 ---
@@ -2278,18 +2334,13 @@ class: solution
 You see great documentation generated from the spec and even the consoles.
 Different tools let you customize the representation.
 
-
----
-
-# Advanced Connexion
-- Inheritance
-- Security & Authentication
-
 ---
 
 class: center, middle, section-title
 
 # More Resources
+
+## BetterAPIs.com
 
 ---
 
