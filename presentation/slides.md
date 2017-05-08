@@ -57,7 +57,9 @@ class: center, middle
 
 ## `git pull`
 
-## `vagrant reload`
+## `vagrant suspend`
+
+## `vagrant reload --provision`
 
 ## `vagrant ssh`
 
