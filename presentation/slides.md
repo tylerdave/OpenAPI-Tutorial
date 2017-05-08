@@ -1597,6 +1597,9 @@ class: solution
 
 # Solution 2.01
 
+## Notes
+
+ - Experimented with code generated
 
 ???
 - We have already seen generating server and client side code during the lesson.
@@ -1806,6 +1809,7 @@ class: center, middle, demo
    called SQLAlchemy that Python uses for persistence.
    You will need to update this part when adding some more data model in next lessons. So I would
    remember this part.
+ - We will now start the application and run a request from Postman to it.
 
 ---
 
@@ -1829,6 +1833,23 @@ class: lesson
  - Use the tool you like most to make HTTP requests. **Postman** is recommended.
 
  - In the lesson directory you will find a postman collection you can use for the exercise.
+
+---
+
+class: solution
+
+# Solution 2.02
+
+## Notes
+
+ - Populated data
+
+???
+
+ - In this lesson you experimented and learned about the structure of our sample
+   application.
+
+ - We now have some data in the application which will serve in the next lessons.
 
 ---
 
@@ -1911,6 +1932,21 @@ class: lesson
  - Update as many responses as you would like and test your mock server.
 ---
 
+class: solution
+
+# Solution 2.03
+
+## Notes
+
+ - Can mock with any spec
+
+???
+
+ - You saw how you can mock any spec and there is actually no connection
+   to back-end code implementation.
+
+---
+
 class: lesson
 
 # Lesson 2.04: Test with Dredd
@@ -1931,13 +1967,9 @@ class: lesson
 
 ## Installation
 
-```
-npm install -g dredd
-```
+ - Using npm
 
-```
-dredd --version
-```
+ - Provided in the VM
 
 ???
 - This is a **language agnostic** tool that is used in order to do basic testing(validation) of your
@@ -1961,14 +1993,14 @@ Dredd init
 ```
 
 ```
-? Location of the API description document apiary.apib
+? Location of the API description document
+   tutorial-repo/implementation/betterapis/specs/betterapis.yaml
 ? Command to start API backend server e.g. (bundle exec rails server)
-? URL of tested API endpoint http://127.0.0.1:3000
-? Programming language of hooks nodejs
-? Do you want to use Apiary test inspector? Yes
-? Please enter Apiary API key or leave empty for anonymous reporter
-? Dredd is best served with Continuous Integration. Create CircleCI config for Dredd? No
-
+? URL of tested API endpoint http://127.0.0.1:8080
+? Programming language of hooks python
+? Do you want to use Apiary test inspector? No
+? Dredd is best served with Continuous Integration.
+   Create CircleCI config for Dredd? No
 Configuration saved to dredd.yml
 
 Run test now, with:
@@ -2051,8 +2083,6 @@ class: lesson
   for this exercise this is why we are limiting this to **only be on GET** actions.
   Make sure you specify you only want to test the GET method on all your paths.
 
-- We encourage you to try running without the flag and see the results.
-
 ---
 
 class: solution
@@ -2061,18 +2091,16 @@ class: solution
 
 ## Notes
 
-- Checking results in Apiary.
-
-- Arrays are valid even if empty.
+- 4 tests passed and 6 skipped.
 
 ???
 
-- If you chose to send results to Apiary you can see a better representation of the output you received.
+- After updating your spec you can see that 4 tests against the *GET* endpoints
+  ran and passed.
+  Other tests that could run but we didn't run are marked as passed.
 
-- if you tested the API before making changes to the application you might have noticed that the tests
-  for the endpoint that returns an array pass even if you do not return any data. Dredd will only validate
-  the format is fine and the format is an array.
-  This might lead to false sense of security.
+- For your tests to pass you needed data in your application that you populated
+  in previous lesson.
 
 - Your lesson directory also has a **dredd.yml** file which you can use going forward.
   This will also point to dredd specific spec in order to do the validation.
@@ -2165,6 +2193,14 @@ class: solution
 
 # Solution 2.05
 
+## Notes
+
+ - Connecting it all together
+
+???
+This lesson connects everything together. You can see how the spec is driving
+the development and makes it a much better development process.
+
 ---
 
 class: lesson
@@ -2227,6 +2263,21 @@ class: lesson
 - Register a new speaker and submit a talk using the connexion UI.
 
 - Use the UI to also update and delete the talk and the speaker.
+
+---
+
+class: solution
+
+# Solution 2.06
+
+## Notes
+
+ - Easy to distribute documentation
+
+???
+You see great documentation generated from the spec and even the consoles.
+Different tools let you customize the representation.
+
 
 ---
 
