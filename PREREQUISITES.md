@@ -92,13 +92,13 @@ Create and activate a new Python virtualenv:
 
 ```
 python -m venv tutorial
-./tutorial/bin/activate
+source tutorial/bin/activate
 ```
 
 Install the implementation package and its dependencies:
 
 ```
-pip install -e tutorial-repo/implementation
+pip install -e implementation
 ```
 
 Option 3: Backup Plan
