@@ -163,7 +163,7 @@ Next is the idea of an API contract
 
 ???
 - Like a legal contract: 
-  - It's an agreement between consumer and API provider
+  - It's an agreement between two parties
   - It should be negotiated
 --
 
@@ -1571,7 +1571,6 @@ class: center, middle, section-title
 class: center, middle, section-title
 
 # What do we get?
---
 
 ???
 - now you have a specification for an API
@@ -1951,7 +1950,6 @@ class: center, padded-top
 --
 
 ## Flask Integration
---
 
 ---
 
@@ -2478,21 +2476,12 @@ Different tools let you customize the representation.
 
 class: center, middle, section-title
 
-# More Resources
-
-## BetterAPIs.com
-
----
-
-class: center, middle, section-title
-
 # Thank You!
 --
 
-### Please Leave Feedback
+### Please leave feedback
 ### "Rate This Session" on listing
 
-## Questions?
 <div style="width: 100%;">
   <div style="width: 50%; float: left; display: inline-block;">
     Ian<br>
