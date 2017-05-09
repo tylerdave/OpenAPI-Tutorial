@@ -23,7 +23,6 @@ class: center, middle
 
 ???
 - I'm Dave Forgac and this is Ian Zelikman.
-- We used to work together on the API team at American Greetings, but he's since moved on to a different job at IBM Watson Health.
 - You can read our bios on the conference site if you want to know more.
 - One thing I would like to point out is that we are not affiliated with the OpenAPI Initiative.
 - We are simply users of and fans of the technology.
@@ -34,26 +33,25 @@ class: center, middle
 
 # Questions
 
+???
+- we have a lot of material to cover
+- ask that you hold questions until the working time or the break
+
 ---
 
 class: center, middle
 
 # BetterAPIs.com
-## `https://github.com/tylerdave/OpenAPI-Tutorial/`
 
 ???
-- We put together a simple website for this tutorial.
-- It is available at BetterAPIs.com
-- If you haven't done so already, this is where you can find instructions for installing the tutorial prerequisites
-- In case you're having trouble downloading the installers we have a few USB flash drives we can pass around
-- We'll also have a link to a survey for you to provide feedback at the end.
-- We'd really appereciate you taking the time to compmlete that so we can improve our tutorial for next time
+- setup instructions and links to everything you need are at betterapis.com
+- so if you haven't done so already, you can try to get set up while I'm going over inro concepts
 
 ---
 
 class: center
 
-# Updates
+## Updates
 
 ### Get repo updates
 
@@ -74,9 +72,17 @@ vagrant reload --provision
 vagrant ssh
 ```
 
+(password is `vagrant` if prompted)
+
 ???
-- If you don't have the prerequisites installed yet, you should be following the directions to do so now.
-- Once do, we'd like you to verify that they're working.
+- Assuming you have already gotten set up, we want to make sure you have the latest updates
+- In your clone of the git repo, do a git pull
+- If the VM is already running, run vagrant suspend
+- Then vagrant reload --provision
+- Then log in via vagrant ssh
+- You shouldn't be prompted for a password but if you are that means somethings wrong with the ssh key.
+- You can use the password 'vagrant' all lowercase if needed
+
 
 ---
 
@@ -87,12 +93,9 @@ class: center, middle
 ## `http://editor.swagger.io/`
 
 ???
-- Before we start the tutorial lessons I'm going to run through some background information.
-- During this time Ian will be walking around helping people get things installed.
-- If you need help, raise your hand and he'll try to get to you.
-- If you're not able to get the prerequisites installed by the time we're ready to start the lessons:
-- You can use the online editor to follow-along for the first half and then we can try to get things working during the break
-
+- If you don't have the VM working by the time we start the lessons, you can complete the work for part 1 using the online swagger editor
+- This URL is linked from BetterAPIs.com
+- Hopefully the installations complete so you're up and running for part 2
 
 ---
 
@@ -101,8 +104,7 @@ class: center, middle, section-title
 # Background
 
 ???
-- Before we really get started I want to go over some terminology and concepts
-to make sure we're all on the same page.
+- Before we start the tutorial lessons I'm going to go over some background information to make sure we're all on the same page.
 
 ---
 class: center, padded-top
@@ -110,6 +112,7 @@ class: center, padded-top
 # REST
 
 ???
+- When we talk about APIs we often use the term REST
 - REST is a *HUGE* topic
 - For our purposes you just need to know a few things
 
@@ -132,7 +135,7 @@ class: center, padded-top
 ## HTTP w/ Constraints
 
 ???
-- For an API to be truly RESTful it needs to adhere to specific constraints:
+- A RESTful API is a service that uses HTTP with constraints on how it works:
   - Client-Server, Stateless, Cache, Interface / Uniform Contract, Layered System, Code-On-Demand
 
 --
@@ -156,11 +159,11 @@ Next is the idea of an API contract
 
 --
 
-## Client ↔ Provider
+## Consumer ↔ Provider
 
 ???
 - Like a legal contract: 
-  - It's an agreement between client and API provider
+  - It's an agreement between consumer and API provider
   - It should be negotiated
 --
 
@@ -183,6 +186,9 @@ class: center, padded-top
 --
 
 ## JavaScript Object Notation
+
+???
+- Stands for JavaScript object notation
 --
 
 ```
@@ -196,10 +202,8 @@ class: center, padded-top
 ```
 
 ???
-- Just in case anyone isn't familiar...
-- ~ Stands for JavaScript object notation
 - It's a way to serialize object data
-- ~ Will look pretty familiar if you've done much with javascript in recent years
+- here's an example
 
 ---
 
@@ -263,13 +267,21 @@ class: center, middle
 ## YAML Basics - Lists
 
 ```
----
 colors:
   - red
   - green
   - blue
-...
 ```
+
+```
+colors: [red, green, blue]
+```
+
+???
+- lists are defined with a key and colon
+- then values are indented underneath with a dash, space before each
+- or for short lists you can use the inline format
+- you'll see examples of both in the spec
 
 ---
 
@@ -278,12 +290,14 @@ class: center, middle
 ## YAML Basics - Dictionaries
 
 ```
----
 session:
   title: Contract-First API Development
   type: tutorial
-...
 ```
+
+???
+- dictionary names are defined the same way as lists
+- then the key-value pairs are indented underneath
 
 ---
 
@@ -292,7 +306,6 @@ class: center, middle
 ## YAML Basics - Spanning
 
 ```
----
 description: |
   This is a long description
   using a pipe
@@ -302,8 +315,12 @@ description2: >
   will ignore
   new
   lines.
-...
 ```
+
+???
+- Strings can span multiple lines using the pipe or greater than
+- The pipe will preserve newlines
+- The greater than will ignore them
 
 ---
 
@@ -312,7 +329,6 @@ class: center, middle
 ## YAML Basics - Nesting
 
 ```
----
 session:
   name: Contract-First API Development
   type: tutorial
@@ -324,8 +340,10 @@ session:
   description: >
     A really useful tutorial during which you'll
     learn about API specifications and stuff.
-...
 ```
+
+???
+- then here we can see an example of these ideas all put together
 
 ---
 
@@ -400,13 +418,30 @@ class: center, padded-top
 # OpenAPI Spec
 --
 
-## Structure
+## History
+
+???
+- swagger grew out of a desire to do something better than WADL
+- originally done via code annotations
+- then a spec was generated
+
 --
 
-## History
+
+## Format
+
+???
+- originally JSON
+- version 2.0 allows authoring in YAML
+- makes it easier to design specification first
+
 --
+
 
 ## Future
+
+???
+- now under the openapi initiative and they're overseeing development
 
 ---
 
@@ -416,20 +451,34 @@ class: center, padded-top
 --
 
 ## Coming Soon
+
+???
+- version 3.0 RC1 was just released
+
 --
 
 ## Tooling to Follow
 
 ???
-Note that a new version is being released soon
-Tooling will take some time to catch up
-
+- when 2.0 came out there was some lag time for tooling
+- 3.0 is a smaller and better coordinated change
+- expect core tools to be updated soon
+- third-party tools will have some lag time
 
 ---
 
 class: center, middle, section-title
 
 # This Tutorial
+
+???
+- this tutorial is split into two parts
+- part 1 we define a basic specification
+- part 2 we use the specification in a few different ways
+- we have more lessons than we expect to get through today for both parts
+- we're going to get as far as we can in part 1 before the break
+- then after the break we'll start with part 2
+- you can complete lessons on your own afterward
 
 ---
 
@@ -1524,6 +1573,10 @@ class: center, middle, section-title
 # What do we get?
 --
 
+???
+- now you have a specification for an API
+- what does that give us?
+
 ---
 
 class: center, padded-top
@@ -1532,15 +1585,38 @@ class: center, padded-top
 --
 
 ## Documentation
+
+???
+- we have documentation for our API
+- the spec itself is a form of documentation
+- but there are also generators to make HTML, PDF, MD, etc 
+
 --
 
 ## Mocking
+
+???
+- we can use our spec with tools to generate mock responses for the api
+- this allows clients to interact before development begins
+- there are some stand-alone mocking tools
+- some of the integrated frameworks support a mocking option
+
 --
 
 ## Testing
+
+???
+- spec can be used to verify API requests and responses conform to the spec
+- the most popular tool for doing this is Dredd
+- we're going to take a look at it in one of the next lessons
+
 --
 
 ## Code Generation
+
+???
+- spec can be used to generate application code
+
 --
 
 ---
@@ -1557,12 +1633,25 @@ class: center, padded-top
 --
 
 ## Servers
+
+???
+- some are one-way
+- some are integrated
+
 --
 
 ## Clients
+
+???
+- generate clients for many popular languages
+- especially helpful when you want to support a languange that you're not familiar with
+
 --
 
 ## Documentation
+
+???
+- generate HTML, PDF, MD, and other format documentation
 
 ---
 
@@ -1706,6 +1795,11 @@ class: center, middle, section-title
 
 # Connexion
 
+???
+- i want to give a little intro to connexion
+- the framework we use for the tutorial
+- it's one of the integrated frameworks, meaning the spec lives with the application
+
 ---
 
 class: center, padded-top
@@ -1719,7 +1813,7 @@ class: center, padded-top
 ## Spec As Configuration
 --
 
-## Routing, Validation, etc.
+## Routing, Validation, Responses, etc.
 --
 
 ---
@@ -2394,6 +2488,9 @@ class: center, middle, section-title
 
 # Thank You!
 --
+
+### Please Leave Feedback
+### "Rate This Session" on listing
 
 ## Questions?
 <div style="width: 100%;">
