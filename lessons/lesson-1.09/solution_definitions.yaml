@@ -42,7 +42,7 @@ Talk:
 Talks:
   type: array
   items:
-    $ref: "#/definitions/Talk"
+    $ref: "solution_definitions.yaml#/Talk"
 Speaker:
   type: object
   required: [first-name, last-name]
@@ -69,7 +69,7 @@ Speaker:
 Speakers:
   type: array
   items:
-    $ref: "#/definitions/Speaker"
+    $ref: "solution_definitions.yaml#/Speaker"
 Error:
   properties:
     code:
