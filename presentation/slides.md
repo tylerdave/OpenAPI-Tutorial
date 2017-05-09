@@ -2141,8 +2141,8 @@ class: lesson
 ## Parameter Example
 
 ```
-  pet-id:
-    name: pet-id
+  pet_id:
+    name: pet_id
     in: path
     description: Pet identifier
     type: number
