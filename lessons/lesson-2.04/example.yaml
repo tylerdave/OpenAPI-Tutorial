@@ -33,9 +33,23 @@ paths:
           description: Returns a list of pets.
           schema:
             $ref: '#/definitions/Pets'
-  /pets/{pet-id}:
+          examples:
+            application/json:
+              [
+                {
+                  id: 12345,
+                  name: "pythagoras",
+                  status: "Adopted"
+                },
+                {
+                  id: 98765,
+                  name: "Lassie",
+                  status: "Adopted"
+                }
+              ]
+  /pets/{pet_id}:
     parameters:
-      - $ref: '#/parameters/pet-id'
+      - $ref: '#/parameters/pet_id'
     get:
       summary: Retrieve pet details
       description: Get details of a pet previously registered
@@ -53,11 +67,11 @@ paths:
               }
 
 parameters:
-  pet-id:
-    name: pet-id
+  pet_id:
+    name: pet_id
     in: path
     description: Pet identifier
-    type: number
+    type: integer
     required: true
     x-example: 42
 
@@ -67,7 +81,7 @@ definitions:
     required: [name, status]
     properties:
       id:
-        type: string
+        type: integer
         description: Pet unique id
       name:
         type: string
