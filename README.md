@@ -12,13 +12,13 @@ To follow this tutorial you will need:
 1. A clone of this repo
 2. Tools installed as described in [PREREQUISITES.md](PREREQUISITES.md).
 
-If you're using the recommended VM option, see [VM.md](VM.md) for more usage
+If you're using the VM option, see [VM.md](VM.md) for more usage
 information after you have everything installed.
 
 Having Trouble?
 ---------------
 
-If you're having trouble getting set up for the tutorial, please email tylerdave@tylerdave.com with "OSCON Tutorial" in the subject. Please be sure to include your OS and a description of the problem including any error messages.
+If you're having trouble getting set up for the tutorial, please email tylerdave@tylerdave.com with "OpenAPI Tutorial" in the subject. Please be sure to include your OS and a description of the problem including any error messages.
 
 Repo Contents
 -------------
