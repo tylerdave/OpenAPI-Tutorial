@@ -5,11 +5,13 @@ In order to follow-along with the exercises in this tutorial you will need
 to install some applications and tooling. Installation can take a while so
 please try to make sure everything is installed before the session.
 
-**Clarification:** You may have seen instructions telling you have Node.js installed on your system. If you use Option 1, Node.js will be included on the
-VM so you don't need it on your host system.
+*If you prefer not to install all of the tooling individually you should use
+Option 1. If you are comfortable with installing npm packages and setting
+up a Python 3.4+ virtualenv then use Option 2 below.*
 
-Option 1: Vagrant + VirtualBox (recommended)
--------------------------------------------
+
+Option 1: Vagrant + VirtualBox
+------------------------------
 
 We have created a VM with all of the required applications already installed
 and configured. To use it you will need to have Vagrant and Virtualbox
@@ -52,15 +54,11 @@ See [VM.md](VM.md) for more usage information.
 Option 2: Manual Installation
 -----------------------------
 
-*Only use this option if you're comfortable troubleshooting problems on your
-own. We will not be able to offer much help with self-installed tools.*
-
 If you prefer to install all the tools into your own development environment,
 you may install the following:
 
 ### Applications
 
-- Java Runtime (7 or 8)
 - Node.js and npm
 - Python 3.4+
 
@@ -95,21 +93,26 @@ python -m venv tutorial
 source tutorial/bin/activate
 ```
 
-Install the implementation package and its dependencies:
+With the `tutorial` virtualenv active, Install the implementation package and
+its dependencies:
 
 ```
 pip install -e implementation
 ```
 
-Option 3: Backup Plan
----------------------
+### Swagger / OpenAPI Editor
 
-If you're unable to get everything installed correctly, you can still follow
-most of the tutorial by using the online Swagger editor at
-http://editor.swagger.io/#/
+If you used Option 1, a copy of the Swagger Editor is included in the VM. If
+you chose Option 2 then you should either:
 
-Recommended
------------
+- Use the online editor here: http://editor2.swagger.io/
+- Install it locally: https://github.com/swagger-api/swagger-editor/tree/2.x#running-locally
+
+*Note: For now we recommend using the 2.x version of the editor as the 3.x 
+version currently has some issues refreshing the validator.*
+
+Also Recommended
+----------------
 
 In order to test the API implementation locally, you should have a tool for 
 making HTTP requests. You are free to use any tool you are comfortable with. We

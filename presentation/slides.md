@@ -255,7 +255,7 @@ class: center, padded-top
 
 ???
 - YAML stands for YAML aint markup language
-- ~ It's a serializatin format
+- ~ It's a serialization format
 - ~ meant to be more readable than JSON
 - ~ It's actually a superset of JSON and can be converted to JSON
 - ~ It has broad language support so it's starting to be used in a lot of places
